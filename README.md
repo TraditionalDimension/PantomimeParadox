@@ -23,9 +23,9 @@ https://github.com/TraditionalDimension/PantomimeParadox/releases/latest
 
 ---
 
-## Notes
-- The **“Main content”** toggle in Config requires a **game restart** (it controls whether the main mod content loads; Hard/Impossible remain available).
-- The New Run UI toggles are designed to **co-exist** with other mods (e.g. Partner / Galdur Compat).
+## Links
+- NexusMods: https://www.nexusmods.com/balatro/mods/592
+- Modded Balatro Wiki: https://balatromods.miraheze.org/wiki/Pantomime_Paradox
 
 ## Changelog
 See: [CHANGELOG.md](CHANGELOG.md)
