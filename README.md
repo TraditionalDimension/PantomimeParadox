@@ -12,8 +12,8 @@ https://github.com/TraditionalDimension/PantomimeParadox/releases/latest
 
 ## Installation
 ### Option A (recommended): Balatro Mod Manager
-- Mod Manager (GitHub): https://github.com/skyline69/balatro-mod-manager
-  Website: https://balatro-mod-manager.dasguney.com/about
+Mod Manager (GitHub): https://github.com/skyline69/balatro-mod-manager, 
+Website: https://balatro-mod-manager.dasguney.com/about
 
 ### Option B: Manual
 Installing Pantomime Paradox mod [Manual]:
