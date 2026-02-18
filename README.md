@@ -16,10 +16,18 @@ https://github.com/TraditionalDimension/PantomimeParadox/releases/latest
 - Website: https://balatro-mod-manager.dasguney.com/about
 
 ### Option B: Manual
+Installing Pantomime Paradox mod [Manual]:
 1. Download the archive from the latest release:
    https://github.com/TraditionalDimension/PantomimeParadox/releases/latest
-2. Extract it into your Balatro mods folder (SMODS).
-3. Launch the game.
+2. Open archive and move folder (PantomimeParadox-<version>) from archive to "...\AppData\Roaming\Balatro\Mods" folder
+3. Open game and activate mod in 'mods' tab, if mod is disable
+
+Updating Pantomime Paradox mod [Manual]:
+1. Download the archive from the latest release:
+   https://github.com/TraditionalDimension/PantomimeParadox/releases/latest
+2. Delete folder of old version of mod along path '...\AppData\Roaming\Balatro\Mods'
+3. Open archive and move folder (PantomimeParadox-<version>) from the archive to "...\AppData\Roaming\Balatro\Mods" folder
+4. Open game and activate mod in 'mods' tab, if mod is disable
 
 ---
 
