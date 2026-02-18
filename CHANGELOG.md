@@ -1,5 +1,15 @@
 # Changelog — Pantomime Paradox
 
+## 1.3.2 - 2026-02-18
+### Fixed
+- **Magical Edition**: restored the **apply SFX** and the **juice/bounce animation** on edition application (now matches vanilla Foil/Holo/Polychrome behavior).
+- Fixed cases where Magical Edition was not react to Glass Cards.
+
+### Masked Packs
+- Add **pre-show Jokers** pause for packs. If this option is enabled in the mod’s config menu, the game will wait one second after opening the pack before shuffling the Jokers to determine its contents.
+- Minor pack text/logic tweaks fix for clearer and more consistent results.
+
+
 ## 1.3.1
 ### Added / Updated
 - Config menu layout: multiple columns for better readability.
