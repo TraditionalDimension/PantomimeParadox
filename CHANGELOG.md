@@ -1,5 +1,23 @@
 # Changelog — Pantomime Paradox
 
+## v1.4.0 - 2026-03-02
+### New Jokers
+- Mime-Couplet
+- Mime-Costumer
+- Mime-Monopolist
+- Mime-Mystery
+- Mime-Alchemist
+- Mime-Witchess
+- Mime-Wizard
+- Mime-Master Planetarium
+- Mime of Kings
+- Mime of Queens
+
+### Fixes / Changes
+- Baron Mime: ante-dependent behavior updates during gameplay (not only tooltip refresh).
+- Function that need for finding correctly Most Played Hand: defaults to High Card when all hands are 0; deterministic tie-breaking.
+- Consumeable spawning: added TDPP_can_add_consumeable() and updated related jokers to respect consumeable_buffer (prevents overflow with Purple Seal and similar).
+
 ## 1.3.2 - 2026-02-18
 ### Fixed
 - **Magical Edition**: restored the **apply SFX** and the **juice/bounce animation** on edition application (now matches vanilla Foil/Holo/Polychrome behavior).
