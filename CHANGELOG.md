@@ -1,5 +1,16 @@
 # Changelog — Pantomime Paradox
 
+## v1.4.1 - 2026-03-03
+### Added
+- 3 new Challenges:
+  - Fishing with Wife
+  - Queens Order
+  - Tired Rulers
+
+### Fixes / Changes
+- Boss Blinds: effects now properly stop after selling **Luchador** (disabled boss no longer triggers on the next hand).
+- Fix some arts.
+
 ## v1.4.0 - 2026-03-02
 ### New Jokers
 - Mime-Couplet
