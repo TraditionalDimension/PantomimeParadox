@@ -1,5 +1,10 @@
 # Changelog — Pantomime Paradox
 
+## v1.4.2 - 2026-03-03 - Hotfix
+
+### Fixes
+- **Master Planetarium**: now correctly triggers **each round** on the **first hand** when it contains **4+ cards of the same rank**. Works properly with **Blueprint/Brainstorm**.
+
 ## v1.4.1 - 2026-03-03
 ### Added
 - 3 new Challenges:
