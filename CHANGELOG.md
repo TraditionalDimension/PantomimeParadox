@@ -1,5 +1,87 @@
 # Changelog — Pantomime Paradox
 
+## v1.4.3 - 2026-03-20 - Major Balance Update
+
+### Balance Changes
+
+- **Synthy Mime**
+  - Moved to **Rare**
+  - Maximum effect simplified to **1 retrigger**
+
+- **Thief Mime**
+  - Chance improved from **1 in 3** to **1 in 2**
+
+- **Glass Lucy**
+  - Now retriggers eligible cards **1** additional time
+
+- **Miner Mime**
+  - Now retriggers eligible cards **1** additional time
+
+- **Ghosty Mime**
+  - Now retriggers eligible cards **1** additional time
+
+- **Mime of Hearts / Clubs / Spades / Diamonds**
+  - Cost increased to **$12**
+
+- **Mime Couplet**
+  - Moved to **Common**
+  - Cost changed to **$7**
+
+- **Mime Engineer**
+  - Reduced from **X1.25** to **X1.15**
+
+- **Ancient Enlightenment**
+  - Reduced from **+3** to **+2**
+
+- **Seventh Mime**
+  - Moved to **Uncommon**
+
+- **Banker Mime**
+  - Chance reduced from **55%** to **35%**
+  - Cost increased to **$12**
+
+### Reworks
+
+- **Leprechaun Mime**
+  - Reworked into a simple retrigger effect for played and held in hand **Lucky** cards
+
+- **Mimetinum Lady**
+  - Reworked into a simple retrigger effect for played and held in hand **Platinum** cards
+
+- **Baron Mime**
+  - Now grants bonus only from **held in hand** face cards
+  - Its scaling now increases only from discards made up entirely of **face cards**
+
+- **Glass Mime**
+  - Removed the extra **Chips** gain from Glass cards
+  - Now has a **1 in 4** chance to destroy itself at end of round
+
+- **Moneylender Mime**
+  - Reworked completely
+  - Now adds a random **Gold** or **Platinum** playing card with a **Gold Seal** at the start of round
+  - Now supports **Blueprint**
+
+- **Sixth Mime**
+  - Reworked completely
+  - Moved to **Uncommon**
+  - Each held in hand **6** now has a **1 in 6** chance to create a random **Spectral** card
+
+### Other Changes
+
+- **Faded Seal**
+  - Bonus variance changed to **-6% to +6%**
+
+- **Acrylique Mime**
+  - Cost increased to **$12**
+  - Now has a **1 in 3** chance to destroy itself after each hand
+
+- **Steel Mime**
+  - Cost increased to **$12**
+  - Now has a **1 in 2** chance to destroy itself after each hand
+
+- **Charlie Mime**
+  - Now only reacts to the **first discard** each round
+
 ## v1.4.2 - 2026-03-03 - Hotfix
 
 ### Fixes
