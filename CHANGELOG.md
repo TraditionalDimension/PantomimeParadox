@@ -1,5 +1,34 @@
 # Changelog — Pantomime Paradox
 
+## v1.5.1 - 2026-03-30 - Feature + Fix patch
+
+### Added
+- Added **Every Ante Variant** for Task Mode.
+- Added new Task Mode objectives for:
+  - playing filtered cards
+  - discarding filtered cards
+  - activating Boss Blinds multiple times
+- Added task-pool filtering based on whether the mod's main content is enabled.
+- Added per-run seeded task ordering for **Every Ante Variant**, so ante task scenarios now vary between runs while staying stable within the same run.
+
+### Changed
+- Reworked Task Mode flow so the start-run menu now shows only one Task Mode toggle at a time, based on config settings.
+- Updated config behavior for Task Mode / Every Ante Variant to make setup clearer and easier to understand.
+- Moved the **Every Ante** config toggle to the second config column to prevent layout overflow.
+- Improved Every Ante task generation and target handling to make runs less repetitive and more interesting.
+- Refined Task Mode HUD drag handling so the visible task panel now matches its real draggable area.
+
+### Fixed
+- Fixed Task Mode HUD drag hitbox being offset from the visible task panel due to coordinate-space mismatch.
+- Fixed Every Ante Variant crash caused by calling `task_seed_base` before its local definition was available.
+- Fixed Every Ante Variant crash caused by invalid randomized sorting logic in seeded ante task ordering.
+- Fixed repeated identical Every Ante task scenarios appearing across different runs.
+- Fixed Task Mode UI/config inconsistencies related to Every Ante toggle presentation.
+
+### Notes
+- Task Mode for a full run still works as before.
+- Every Ante Variant now functions as a distinct Task Mode style with proper seeded variation and corrected startup behavior.
+
 ## v1.5.0 - 2026-03-29 - Major Update
 
 ### Added
