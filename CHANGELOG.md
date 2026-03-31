@@ -1,5 +1,30 @@
 # Changelog — Pantomime Paradox
 
+## v1.5.2 - 2026-03-31 - Fix patch
+
+### Fixed
+- Fixed a bug where buying a **Voucher** did not count toward Task Mode objectives.
+- Fixed a crash in **Every Ante Task Mode** caused by invalid sorting during dynamic task generation.
+
+### Changed
+- Reworked **Every Ante Task Mode** to generate tasks more dynamically instead of relying only on a rigid seeded cycle.
+- Every Ante tasks can now take the current deck state into account when selecting objectives.
+- Added support for **specific-card objectives** in Every Ante mode:
+  - Play a specific card
+  - Discard a specific card
+- Specific-card objectives now track the chosen playing card by its internal card identity instead of its current appearance, making task tracking more reliable.
+- If a targeted card for an Every Ante objective is removed from the deck, the task is now regenerated automatically instead of becoming a dead objective.
+- Added anti-repetition logic to reduce how often similar Every Ante tasks appear back-to-back.
+- Expanded dynamic Every Ante task selection to better consider real deck properties, including:
+  - Rank
+  - Suit
+  - Enhancement
+  - Seal
+  - Edition
+
+### Localization
+- Added **32 new failure lines** for Jimbo when losing due to unfinished Task Mode objectives.
+
 ## v1.5.1 - 2026-03-30 - Feature + Fix patch
 
 ### Added
