@@ -1,5 +1,26 @@
 # Changelog — Pantomime Paradox
 
+## v1.5.3 - 2026-04-01 - Fix patch
+
+### Fixed
+- Fixed additional issues with **Every Ante Task Mode** exact-card discard objectives not always registering correctly.
+- Fixed cases where discarding a targeted card together with other cards could fail to complete the objective.
+- Fixed edge cases where exact-card discard tracking could miss real discard actions depending on the hook path used.
+
+### Changed
+- Improved **Every Ante Task Mode** objective tracking for exact-card discard tasks.
+- Exact-card discard objectives are now handled more robustly across different discard flows.
+- Added safer matching logic for targeted discard objectives to better handle edge cases.
+
+### Compatibility
+- Improved task text generation for card-based objectives that reference:
+  - Editions
+  - Seals
+  - Enhancements
+- Objective text now resolves **real localized names** more reliably instead of showing raw internal keys.
+- Improved compatibility for modded card properties when they are registered through standard localization/center data.
+- Vanilla card properties such as **Foil**, **Holographic**, **Polychrome**, and other standard labels now display correctly in Every Ante card objectives.
+
 ## v1.5.2 - 2026-03-31 - Fix patch
 
 ### Fixed
