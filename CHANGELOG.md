@@ -1,5 +1,34 @@
 # Changelog — Pantomime Paradox
 
+# 1.5.4 - 2026-04-02 - Fix patch
+
+## Fixes
+
+- Added improved compatibility with Balatro Multiplayer.
+- Fixed TDPP multiplayer-specific mode behavior incorrectly affecting normal Single Run games.
+- Fixed host-selected TDPP mode toggles not syncing correctly to the guest in real PvP runs.
+- Adjusted Task Mode behavior in Multiplayer:
+  - Multiplayer now uses the Every Ante variant during real PvP runs.
+  - failing a task in Multiplayer no longer causes a TDPP-specific game over;
+  - instead, the task panel turns red and applies a fixed **-$16** penalty.
+- Adjusted Hard Mode and Impossible Mode for Multiplayer compatibility:
+  - their Multiplayer behavior now applies only during real PvP runs;
+  - normal Single Run behavior remains unchanged.
+- Fixed Multiplayer run-state detection so Single Run and PvP are handled separately.
+
+## Joker Fixes
+
+- **Emerald Mime**
+  - now avoids reapplying the card's current seal when choosing a new one;
+  - multiple copies can now reroll seals more cleanly in sequence.
+- **Garnet Mime**
+  - now avoids reapplying the card's current edition when choosing a new one;
+  - multiple copies can now reroll editions more cleanly in sequence.
+
+## Notes
+
+- Chevron Deck's rare edition-tag interaction was intentionally left unchanged.
+
 ## v1.5.3 - 2026-04-01 - Fix patch
 
 ### Fixed
