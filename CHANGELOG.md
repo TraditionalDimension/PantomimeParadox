@@ -1,5 +1,30 @@
 # Changelog — Pantomime Paradox
 
+# 1.5.5 - 2026-04-02 - Fix + Сompatibility patch
+
+### Added
+- Added a new **Jokers Buffs** config tab while keeping the original **Config** tab for main mod settings.
+- Added the initial **compatibility framework** for external mod support.
+- Added the first large wave of **JokerDisplay** support for TDPP jokers.
+- Added the second wave (**2A**) of **JokerDisplay** support for additional medium-complexity jokers.
+- Added the third wave (**2B**) of **JokerDisplay** support for more medium-complexity jokers.
+
+### Changed
+- Reorganized mod settings so core options remain in **Config**, while joker buff toggles are grouped under **Jokers Buffs**.
+- Improved several **JokerDisplay** layouts to use more compact and readable reminder text.
+- Adjusted **Blue Mime**, **Red Mime**, and **Gold Mime** displays to show the real total value they will grant for the currently evaluated hand instead of a static per-card value.
+- Refined several order-dependent **JokerDisplay** entries to show clearer formulas/state info instead of misleading pseudo-exact totals.
+
+### Fixed
+- Fixed the config menu crash caused by returning the wrong structure from `config_tab`.
+- Fixed empty red display blocks appearing on some `XMult` JokerDisplay entries.
+- Fixed oversized or awkward multi-line display text for several jokers by shortening reminder strings.
+- Fixed misleading display totals for some jokers whose effects depend on current hand state or scoring order.
+
+### Compatibility
+- Added groundwork for future **Multiplayer** compatibility auditing.
+- Separated display-side compatibility logic from gameplay logic to reduce the risk of conflicts with other mods.
+
 # 1.5.4 - 2026-04-02 - Fix patch
 
 ## Fixes
