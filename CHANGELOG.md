@@ -1,5 +1,32 @@
 # Changelog — Pantomime Paradox
 
+## 1.5.7 - 2026-04-05 - Fix and Content Update
+
+### Added
+- Added **Florist Mime**
+- Added **Nebula Mime**
+- Added **JokerDisplay** support for **Florist Mime**
+- Added **JokerDisplay** support for **Nebula Mime**
+
+### Changed
+- Reworked a large part of **JokerDisplay** support to reduce lag and microstutters
+- Optimized display calculations by moving repeated hand / held-card / suit / enhancement checks into shared helpers
+- Improved **JokerDisplay** stability when many Jokers are present at once
+- Polished several display reminders and formatting details for better vanilla-style readability
+- Updated **King Mime** display reminder formatting
+- Improved handling of our custom **Magical** edition in Joker-related display text where applicable
+
+### Fixed
+- Fixed multiple **JokerDisplay** calculations that could return invalid values or `ERROR`
+- Fixed heavy display calculations for several Mime Jokers that were repeatedly recalculating the same hand state
+- Fixed missing reminder arrow on **King Mime**
+- Fixed **JokerDisplay** crashes caused by the experimental global **Magical** edition display integration
+- Fixed several custom display lines to better match the actual live effect of their Jokers
+
+### Notes
+- The new **JokerDisplay** optimization pass focused on performance and stability first
+- The experimental global automatic display line for the custom **Magical** edition was rolled back for stability
+
 ## 1.5.6.1 - 2026-04-05 - Hotfix
 
 ### Fixed
