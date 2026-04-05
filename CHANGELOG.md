@@ -1,5 +1,30 @@
 # Changelog — Pantomime Paradox
 
+# 1.5.6 - 2026-04-05 - Fix + Сompatibility patch
+
+## Added
+- Completed **JokerDisplay** support for the remaining **Pantomime Paradox** Jokers.
+- Added a new **Config** toggle to enable or disable **Pantomime Paradox Joker Displays** when **JokerDisplay** is installed.
+- Added conditional detection so the Joker Display toggle only appears if the **JokerDisplay** mod is present.
+
+## Changed
+- Standardized many Joker Display reminder lines to better match vanilla-style **JokerDisplay** formatting.
+- Improved multiple display texts to be shorter, cleaner, and more readable during runs.
+- Updated several reminder displays to use more consistent bracketed formatting and color usage.
+- Refined odds display formatting to better match the expected vanilla-style presentation.
+- Adjusted several display reminders and labels for clarity across the full Joker roster.
+
+## Polish
+- Improved coloring on multiple Joker Displays for better readability and consistency.
+- Refined special reminder text formatting for several Jokers, including edition-based, spectral, and status-style reminders.
+- Updated the **Fourth Dimension** display so **Wild 4** uses the proper spectral-style color treatment.
+- Improved the **White Mime** display so **Negative** uses the correct negative-style color treatment.
+- Cleaned up several displays by removing redundant reminder words such as extra “Again” text where unnecessary.
+
+## Notes
+- Changing the new **Joker Display** Config toggle currently requires a game restart to fully apply.
+- No gameplay balance changes were made in this patch; this update focuses on **JokerDisplay completion, readability, and Config integration**.
+
 # 1.5.5 - 2026-04-02 - Fix + Сompatibility patch
 
 ### Added
