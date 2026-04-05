@@ -1,31 +1,46 @@
 # Changelog — Pantomime Paradox
 
-# 1.5.6 - 2026-04-05 - Fix + Сompatibility patch
+## 1.5.6.1 - 2026-04-05 - Hotfix
 
-## Added
+### Fixed
+- Restored the correct localization text for **Ninth Mime**
+- Restored the correct localization text for **Wizard Mime**
+
+### Compatibility
+- Tightened optional mod detection for **JokerDisplay**
+- Tightened optional mod detection for **Multiplayer**
+- Optional compatibility branches now initialize only when their target mod is actually active
+
+### Notes
+- This patch does **not** resolve lag caused by **Multiplayer** remaining inside the `Mods` folder
+- If you are not actively testing Multiplayer compatibility, it is recommended to keep the mod outside the `Mods` folder
+
+## 1.5.6 - 2026-04-05 - Fix + Сompatibility patch
+
+### Added
 - Completed **JokerDisplay** support for the remaining **Pantomime Paradox** Jokers.
 - Added a new **Config** toggle to enable or disable **Pantomime Paradox Joker Displays** when **JokerDisplay** is installed.
 - Added conditional detection so the Joker Display toggle only appears if the **JokerDisplay** mod is present.
 
-## Changed
+### Changed
 - Standardized many Joker Display reminder lines to better match vanilla-style **JokerDisplay** formatting.
 - Improved multiple display texts to be shorter, cleaner, and more readable during runs.
 - Updated several reminder displays to use more consistent bracketed formatting and color usage.
 - Refined odds display formatting to better match the expected vanilla-style presentation.
 - Adjusted several display reminders and labels for clarity across the full Joker roster.
 
-## Polish
+### Polish
 - Improved coloring on multiple Joker Displays for better readability and consistency.
 - Refined special reminder text formatting for several Jokers, including edition-based, spectral, and status-style reminders.
 - Updated the **Fourth Dimension** display so **Wild 4** uses the proper spectral-style color treatment.
 - Improved the **White Mime** display so **Negative** uses the correct negative-style color treatment.
 - Cleaned up several displays by removing redundant reminder words such as extra “Again” text where unnecessary.
 
-## Notes
+### Notes
 - Changing the new **Joker Display** Config toggle currently requires a game restart to fully apply.
 - No gameplay balance changes were made in this patch; this update focuses on **JokerDisplay completion, readability, and Config integration**.
 
-# 1.5.5 - 2026-04-02 - Fix + Сompatibility patch
+## 1.5.5 - 2026-04-02 - Fix + Сompatibility patch
 
 ### Added
 - Added a new **Jokers Buffs** config tab while keeping the original **Config** tab for main mod settings.
@@ -50,9 +65,9 @@
 - Added groundwork for future **Multiplayer** compatibility auditing.
 - Separated display-side compatibility logic from gameplay logic to reduce the risk of conflicts with other mods.
 
-# 1.5.4 - 2026-04-02 - Fix patch
+## 1.5.4 - 2026-04-02 - Fix patch
 
-## Fixes
+### Fixes
 
 - Added improved compatibility with Balatro Multiplayer.
 - Fixed TDPP multiplayer-specific mode behavior incorrectly affecting normal Single Run games.
@@ -66,7 +81,7 @@
   - normal Single Run behavior remains unchanged.
 - Fixed Multiplayer run-state detection so Single Run and PvP are handled separately.
 
-## Joker Fixes
+### Joker Fixes
 
 - **Emerald Mime**
   - now avoids reapplying the card's current seal when choosing a new one;
@@ -75,7 +90,7 @@
   - now avoids reapplying the card's current edition when choosing a new one;
   - multiple copies can now reroll editions more cleanly in sequence.
 
-## Notes
+### Notes
 
 - Chevron Deck's rare edition-tag interaction was intentionally left unchanged.
 
@@ -357,7 +372,6 @@ Additional notes:
 ### Masked Packs
 - Add **pre-show Jokers** pause for packs. If this option is enabled in the mod’s config menu, the game will wait one second after opening the pack before shuffling the Jokers to determine its contents.
 - Minor pack text/logic tweaks fix for clearer and more consistent results.
-
 
 ## 1.3.1
 ### Added / Updated
