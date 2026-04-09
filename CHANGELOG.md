@@ -1,5 +1,29 @@
 # Changelog — Pantomime Paradox
 
+## 1.6.0 - 2026-04-09 - Content Update
+
+### Added
+- Added 8 new Mime Jokers:
+  - **Golden Judith** — Retriggers played and held Gold cards 1 additional time.
+  - **Chrome Vera** — Retriggers played and held Steel cards 1 additional time.
+  - **Crystal Iris** — Each held Glass card gives +25% of current Chips.
+  - **Mosaic Flora** — Each held Bonus, Mult, or Wild card gives +25% of current Chips.
+  - **Curator Violet** — Each Enhanced card in your full deck gives +1% of current Chips.
+  - **Leading Lady** — The leftmost held card gives +25% of current Chips.
+  - **Prism Edith** — Each held card with any Edition gives +25% of current Chips.
+  - **Sigil Nora** — Each held card with any Seal gives +25% of current Chips.
+
+- Added DisplayJoker support for all new Mime Jokers.
+
+### Changed
+- Simplified **Leading Lady**:
+  - Removed hand-size scaling.
+  - The effect now always grants a fixed +25% of current Chips to the leftmost held card.
+
+### Notes
+- This update expands the Mime roster with a new enhancement-focused set of Jokers built around Gold, Steel, Glass, Editions, Seals, and other enhanced card synergies.
+- Multiplayer Task Mode note: Task Mode is currently not fully synchronized with the Multiplayer lobby/run state, so the automatic Multiplayer override to Every Ante may fail and a failed task may still behave like the Singleplayer version instead of using the intended Multiplayer money penalty. In practice, the current Multiplayer integration can fall back to the local Task Mode menu state instead of always reading a fully synchronized MP state, which is why behavior may differ between host and guest. As a temporary workaround, Task Mode can still be played in Multiplayer if the guest enables Task Mode in the Singleplayer menu before joining or starting the Multiplayer run; for the most consistent results, it is recommended that both players set it up beforehand and manually use the Every Ante variant when needed. This is a known compatibility limitation between Pantomime Paradox Task Mode and the current Multiplayer state-sync flow, and it does not affect normal Singleplayer Task Mode behavior.
+
 ## 1.5.7 - 2026-04-05 - Fix and Content Update
 
 ### Added
