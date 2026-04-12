@@ -1,5 +1,36 @@
 # Changelog — Pantomime Paradox
 
+## 1.6.1 - 2026-04-12 - Important Fix + Balance patch
+
+### Balance / Reworks
+- **Nebula Mime** has been reworked to grant **+% of current Chips** instead of flat Chips.
+- **Nebula Mime** now scales its bonus from the level of the discarded poker hand.
+
+### Gameplay
+- **Eighth Mime** has been significantly expanded.
+- Instead of only turning a random held card into a **Wild 8**, it now has a chance to randomly modify **one** of several parameter groups on a held card:
+  - **rank and suit** → **8 of Spades**
+  - **Edition**
+  - **Seal**
+  - **Enhancement**
+- The original trigger condition remains unchanged.
+
+### Art / Visual Fixes
+- Adjusted and polished several joker artworks.
+
+### Localization
+- Updated **English** localization for the changed jokers and improved wording in several affected lines.
+- Updated **Russian** localization for the changed jokers and synchronized the new descriptions with gameplay behavior.
+- Clarified tooltip wording around debuffed-card interactions where needed.
+
+### Compatibility / UI
+- Updated **JokerDisplay** support for **Nebula Mime** and **Eighth Mime**.
+- Added JokerDisplay key updates for **Wild Marble** and **Prism of Edith**.
+
+### Polish
+- Improved consistency of tooltip phrasing for recently adjusted Mime jokers.
+- Cleaned up release text for a more accurate and polished 1.6.1 patch.
+
 ## 1.6.0 - 2026-04-09 - Content Update
 
 ### Added
