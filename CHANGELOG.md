@@ -1,5 +1,21 @@
 # Changelog — Pantomime Paradox
 
+## 1.6.2 - 2026-04-14 - Important Fix patch
+
+### Balance Changes
+- **Miner Mime** now retriggers played and held in hand **Stone** cards **2 additional times** instead of 1.
+- Simplified the **Queen's Order** challenge:
+  - Added **+2 Joker slots**
+  - Added a starting **Pareidolia**
+- Simplified the **Tired Rulers** challenge:
+  - Added **+2 Joker slots**
+  - Added a starting **Pareidolia**
+
+### Fixes
+- Reworked **Faded Seal** random bonus shift logic so its minimum and maximum roll bounds now correctly account for the current global normal probability.
+- Fixed **Faded Seal** tooltip values so the displayed random range now matches the real in-game behavior.
+- Improved **Faded Seal** localization text for better clarity and accuracy.
+
 ## 1.6.1 - 2026-04-12 - Important Fix + Balance patch
 
 ### Balance / Reworks
