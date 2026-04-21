@@ -1,5 +1,32 @@
 # Changelog — Pantomime Paradox
 
+## 1.7.0 - 2026-04-21 - Major Update
+
+### Added
+- Added 4 new Vouchers:
+  - **Foil Package**
+  - **Collection Album**
+  - **Voucher Ledger**
+  - **Tag Repertoire**
+- Added several new hidden Joker synergies.
+- Added Stone Cards as valid targets for **Wild Marble**.
+
+### Changed
+- Reworked **Wild Marble** so its effect now also counts held **Stone Cards**.
+- Rebalanced **Lady Mime** with a new hidden synergy.
+- Rebalanced **Verda Mime** with a new hidden synergy.
+- Rebalanced **Curator Violet** with a new hidden synergy.
+- Rebalanced **Mime Agony** with a new hidden synergy.
+- Updated multiple Joker descriptions and supporting localization text for 1.7.0 changes.
+- Standardized many **JokerDisplay** entries to better match vanilla-style formatting and reminders.
+
+### Fixed
+- Fixed multiple **JokerDisplay** formatting inconsistencies.
+- Fixed missing inactive-style reminder brackets on various Joker displays.
+- Fixed spacing issues in several Joker displays (for example, values now display like `6x65%` instead of `6 x 65%`).
+- Fixed **Wild Marble** display/support text so it correctly reflects Stone Card support.
+- Fixed dynamic value presentation for several updated Jokers so their displayed values stay in sync with their current behavior.
+
 ## 1.6.2 - 2026-04-14 - Important Fix patch
 
 ### Balance Changes
