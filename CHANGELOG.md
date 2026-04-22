@@ -1,5 +1,19 @@
 # Changelog — Pantomime Paradox
 
+## 1.7.1 - 2026-04-22 - Multiplayer compatibility hotfix
+
+### Fixes
+- Fixed Multiplayer compatibility for Task Mode.
+- Fixed Multiplayer compatibility for Hard Mode.
+- Fixed Multiplayer compatibility for Impossible Mode.
+- Fixed lobby synchronization for TDPP multiplayer modifiers.
+- Fixed mode synchronization when creating, updating, and starting Multiplayer lobbies.
+- Improved compatibility when using Pantomime Paradox together with the Multiplayer mod.
+
+### Notes
+- Multiplayer support for Task/Hard/Impossible modes now works correctly for host and guest.
+- Sigma Mime can no longer appear with Eternal or Perishable stickers.
+
 ## 1.7.0 - 2026-04-21 - Major Update
 
 ### Added
