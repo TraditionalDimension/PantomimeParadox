@@ -1,5 +1,161 @@
 # Changelog — Pantomime Paradox
 
+## 1.8.0 - 2026-05-09 - Major Update
+
+### New Jokers
+
+Added a new wave of Jokers focused on poker hand history, Booster Pack interactions, Tags, Enhanced Cards, and rank-based builds.
+
+#### Poker Hand Jokers
+
+- Added **Last Curtain Lady**
+  - On your last discard of round, earns money equal to the number of times the discarded poker hand was played this run.
+
+- Added **Opening Gesture Mime**
+  - The first card held in hand and the first scoring card each give Chips equivalent to the number of times the played poker hand was played this run.
+
+- Added **Final Lesson Lady**
+  - At end of round, levels up a random visible poker hand.
+
+- Added **Favorite Performance**
+  - If played hand is your most played poker hand, gains XMult per level of that hand.
+  - Blueprint copies only the current XMult bonus.
+
+- Added **Collection Mime**
+  - When any poker hand is played, gains Chips equivalent to the number of times that hand was played this run.
+  - Blueprint copies only the current Chips bonus.
+
+#### Pack, Tag, and Voucher Jokers
+
+- Added **Courier Mime**
+  - On your last discard of round, creates a random Tarot, Planet, or Spectral card.
+  - Must have room.
+
+- Added **Monochrome Mime**
+  - When a Booster Pack is opened, a Voucher is bought, or a Tag is used, levels up a random visible poker hand.
+
+- Added **Broken Double Six**
+  - After skipping 6 Booster Packs, turns into Oops! All 6s.
+
+- Added **Charm Collector**
+  - When any Tag is used, gains XMult.
+  - Blueprint copies only the current XMult bonus.
+
+#### Economy and Condition Jokers
+
+- Added **Bronze Scratch Ticket**
+  - Each discarded card has a chance to give money.
+
+- Added **High Rank Sign**
+  - If played poker hand level is higher than current Ante, destroys a random card held in hand after scoring and gives money.
+
+- Added **Polished Payroll**
+  - If all scoring cards in played poker hand are Enhanced Cards, gives money.
+
+#### Enhanced Card Jokers
+
+- Added **Chrome Plate**
+  - Enhanced cards held in hand or played and scored give Chips.
+
+- Added **Adamant Core**
+  - Enhanced cards held in hand or played and scored give Mult.
+
+- Added **Prismatic Asteroid**
+  - If played hand contains cards with enough different Enhanced types, levels up the played poker hand.
+  - Checks the full played hand, including non-scoring cards.
+
+- Added **Falling Asteroid**
+  - If discard contains cards with enough different Enhanced types, levels up the discarded poker hand.
+
+#### Rank Retrigger Jokers
+
+Added a new rank-based retrigger cycle. These Jokers retrigger all played and held cards of a specific rank one more time.
+
+- Added **Deuce Signal**
+- Added **Trey Signal**
+- Added **Four Signal**
+- Added **Five Signal**
+- Added **Six Signal**
+- Added **Seven Signal**
+- Added **Eight Signal**
+- Added **Nine Signal**
+- Added **Ten Signal**
+- Added **Ace Signal**
+
+Added three face-card rank retrigger Mimes:
+
+- Added **Jack of Mimes**
+- Added **Queen of Mimes**
+- Added **King of Mimes**
+
+### JokerDisplay
+
+Added JokerDisplay support for all new 1.8.0 Jokers.
+
+Improved JokerDisplay styling across many existing Jokers:
+
+- Updated chance text formatting to better match vanilla JokerDisplay style.
+- Reduced overly long display strings.
+- Improved reminder text formatting.
+- Fixed several spacing issues.
+- Fixed color styling for selected symbols and keywords.
+- Updated rank retrigger Joker displays to match the existing Mime of Diamonds style.
+
+Specific JokerDisplay fixes:
+
+- **Curator Violet**
+  - Main display now shows the total current bonus.
+  - Multiplier breakdown was moved to the extra line.
+
+- **Lab Assistant Mime**
+  - Fixed slash formatting in Shard/Crystals display.
+
+- **Sixth Mime**
+  - Main display now uses a cleaner “Creates card” style.
+
+- **Ruby Mime**, **Lapis Mime**, **Amber Mime**, **Amethyst Mime**
+  - Removed extra spacing in main display strings.
+
+- **Nebula Mime**
+  - Fixed color styling on the final display line.
+
+- **Eighth Mime**
+  - Removed unnecessary spaces around slash-separated options.
+
+- **Mime Agony**
+  - Fixed color styling for + and % symbols.
+
+- **Return Package**
+  - Fixed money preview calculation for the current discard.
+
+- **Chrome Plate** and **Adamant Core**
+  - Main display now shows the calculated total bonus instead of a formula-style line.
+  - Enhanced reminder text now uses the correct attention color.
+
+### Fixes
+
+- Fixed Blueprint behavior for **Favorite Performance** and **Collection Mime**.
+  - Blueprint now copies the stored bonus correctly without increasing it.
+
+- Fixed Blueprint animation and message behavior for **Prismatic Asteroid**, **Falling Asteroid**, and **Monochrome Mime**.
+  - These now follow the same visual pattern as Final Lesson Lady.
+
+- Fixed Enhanced type detection for Asteroid Jokers.
+  - Stone Cards are now correctly recognized.
+  - Debuffed cards are ignored as ballast for Asteroid conditions.
+
+- Fixed **Polished Payroll** condition.
+  - It now checks only the scoring poker hand, not every played card.
+  - Debuffed scoring cards fail the condition.
+
+- Fixed **Monochrome Mime** trigger coverage.
+  - It now works on Booster Pack opening, Voucher purchase, and Tag use.
+
+- Fixed **High Rank Sign** timing.
+  - It now destroys the held card after scoring, preventing held-card scoring conflicts.
+
+- Fixed Wild Card handling for the previous Monochrome Mime design during development.
+
 ## 1.7.1 - 2026-04-22 - Multiplayer compatibility hotfix
 
 ### Fixes
