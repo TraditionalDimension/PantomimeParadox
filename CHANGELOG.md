@@ -1,5 +1,58 @@
 # Changelog — Pantomime Paradox
 
+## 1.8.1 - 2026-05-18 - Balance and Fix patch
+
+### Balance Changes
+- **Baron Mime** rarity changed from Rare to Uncommon.
+- **Second Mime** rarity changed from Uncommon to Common.
+- **Eighth Mime** rarity changed from Uncommon to Common.
+- **Nebula Mime** rarity changed from Rare to Common.
+- **Polished Payroll** rarity changed from Uncommon to Common.
+
+### Reworks / Changes
+- Reworked **Curator Violet**.
+  - Curator Violet now follows an Idol-style selected card.
+  - Each held copy of the selected card gives XMult when scored.
+  - The XMult bonus scales from the number of selected-card copies in the full deck.
+  - **Showman** now increases Curator Violet's per-copy scaling bonus.
+  - Updated **Curator Violet** JokerDisplay support to show the real total XMult that will be applied.
+
+- Improved **Opening Gesture Mime**.
+  - It now gives Chips to every scoring card in the played hand.
+  - The first card held in hand still keeps its Chips bonus.
+  - Updated JokerDisplay support to better reflect the expanded effect.
+
+- Improved **Mime Illusionist**.
+  - If the second-to-last Joker is Common, it can still transform into an Uncommon Joker.
+  - If the second-to-last Joker is Uncommon, it can still transform into a Rare Joker.
+  - If the second-to-last Joker is already Rare, it now transforms into another random Rare Joker.
+  - Duplicate Mime Illusionist effects remain non-multiplicative.
+
+- Improved **Sapphire Mime**.
+  - It can now create either **Immolate** or **Hydro** at the start of round.
+  - The selection is split between both Spectral cards.
+
+- Improved **Glass Mime**.
+  - The created Glass playing card now always receives either a random Seal or a random Edition.
+
+### Boss Blind Behavior
+- Updated **Eighth Mime** Boss Blind behavior.
+  - Eighth Mime is no longer fully inactive on Boss Blinds.
+  - On Boss Blinds, only the rank/suit transformation is disabled.
+  - Edition, Seal, and Enhancement transformations can still trigger on Boss Blinds.
+
+### JokerDisplay
+- Updated **Curator Violet** display.
+  - Main display now shows the total XMult that will be applied for the current held target cards.
+  - Reminder text now shows the current Idol-style selected card.
+- Updated **Opening Gesture Mime** display.
+  - Display now reflects its scoring-card and first-held-card Chips bonus more clearly.
+
+### Fixes / Polish
+- Updated affected English and Russian localization text.
+- Cleaned up several tooltip descriptions to better match the new 1.8.1 behavior.
+- Preserved Blueprint compatibility behavior for the adjusted creation and scoring effects.
+
 ## 1.8.0 - 2026-05-09 - Major Update
 
 ### New Jokers
