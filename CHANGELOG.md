@@ -1,5 +1,46 @@
 # Changelog — Pantomime Paradox
 
+## 1.8.2 - 2026-05-23 - Localization and Stability Patch
+
+### Localization
+
+  * Added German localization.
+  * Added French localization.
+  * Added Spanish localization for Spain.
+  * Added Spanish localization for Latin America.
+  * Added Brazilian Portuguese localization.
+  * Added Italian localization.
+  * Synchronized the new localization files with the current English text structure.
+  * Preserved all Balatro/SMODS formatting tags, variables, tooltip references, and placeholders across the new localization files.
+
+### Fixes
+
+  * Fixed Favorite Performance behavior.
+    * It now gives its current XMult bonus on any played hand.
+    * Its bonus now increases only when the played hand is the most played poker hand this run.
+    * Blueprint effects still copy only the current XMult bonus without increasing it.
+
+  * Fixed Masked Mega Buffoon Pack Tag context handling.
+    * The Tag now correctly reports a successful Tag trigger.
+    * Charm Collector now correctly detects this custom Tag when it is used.
+
+  * Fixed Chevron Deck shop behavior after buying Overstock or Overstock Plus.
+    * Newly added shop slots now correctly generate shop card UI.
+    * Cards created in the new slot now correctly show price and Buy / Buy and Use buttons.
+
+  * Fixed Monochrome Mime trigger coverage.
+    * It now also works when a Booster Pack is skipped.
+    * Existing triggers for Booster Pack opening, Voucher purchase, and Tag use are preserved.
+
+### Balance Changes
+
+  * Mime-Polis is now a Common Joker.
+
+### Notes
+
+  * This patch focuses on localization coverage, shop UI stability, and several post-1.8.0 behavior fixes.
+  * No new Jokers were added in this patch.
+
 ## 1.8.1 - 2026-05-18 - Balance and Fix patch
 
 ### Balance Changes
