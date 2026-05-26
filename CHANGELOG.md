@@ -1,5 +1,120 @@
 # Changelog — Pantomime Paradox
 
+## 1.9.0 - 2026-05-26 - Astral Update
+
+### New Jokers
+
+Added 5 new Jokers focused on poker hand leveling, Tags, rerolls, and cosmic scaling.
+
+#### Poker Hand Level Jokers
+
+  * Added Stella Mime
+
+    * After each played hand, levels up a random visible poker hand.
+    * Blueprint compatible.
+  * Added Luna Mime
+
+    * After each discard, levels up a random visible poker hand.
+    * Blueprint compatible.
+  * Added Comet Countess
+
+    * Has a chance to level up a random visible poker hand for each discarded card.
+    * Also checks sold Jokers and sold Consumables.
+    * Blueprint compatible.
+  * Added Orbit Duchess
+
+    * Before each played hand is scored, has a chance to create a random Tag.
+    * The chance is based on the current remaining Hands and Discards.
+    * Blueprint compatible.
+
+#### Reroll Joker
+
+  * Added Invisible Mime
+
+    * Has a chance to gain Charge on shop reroll.
+    * When sold with enough Charges, duplicates the leftmost non-Invisible Mime Joker.
+    * Higher Charge counts can grant hidden bonus rewards.
+    * Not Blueprint compatible.
+
+### New Tag
+
+  * Added Abyssal Tag
+
+    * Creates a Negative Hydro or Negative Soul card.
+    * Uses a 70% / 30% split between Hydro and Soul.
+    * Appears as a rare Tag starting from Ante 2.
+    * Added Abyssal Tag to supported random Tag pools.
+
+### Reworks / Changes
+
+  * Reworked Nebula Mime.
+
+    * Nebula Mime now gains its bonus from both played poker hands and discarded poker hands.
+    * Played hand scaling now happens before the hand's own scoring payout.
+    * Its scaling is now based on the poker hand level multiplied by Astral Queen.
+    * Astral Queen counts:
+      * Planet cards in Consumable slots.
+      * Listed cosmic Jokers.
+      * Listed bought Vouchers.
+    * Added the new cosmic Jokers to Nebula Mime's Astral Queen synergy list.
+    * Blueprint copies only the current payout and does not increase Nebula Mime's stored bonus.
+  * Updated Mimetracte.
+
+    * Its final-hand held-card bonus now gives +45% of current Chips instead of a flat +45 Chips.
+  * Updated Tag Repertoire.
+
+    * It now creates 1 to 3 random Tags at end of round.
+    * Boss Tag remains excluded.
+    * Added sound feedback when Tags are created.
+  * Updated Monochrome Mime.
+
+    * Rarity changed from Common to Uncommon.
+
+### JokerDisplay
+
+  * Added JokerDisplay support for all new 1.9.0 Jokers:
+    * Stella Mime
+    * Luna Mime
+    * Comet Countess
+    * Orbit Duchess
+    * Invisible Mime
+  * Updated new Joker displays to use compact vanilla-style formatting.
+  * Chance displays now use concise green formatting such as `(1 in 6)`.
+  * Invisible Mime display now shows its current Charge progress and reroll chance.
+
+### Localization
+
+  * Updated English and Russian localization for all new 1.9.0 content.
+  * Updated existing supported localizations for 1.9.0 content:
+    * German
+    * Spanish
+    * Latin American Spanish
+    * French
+    * Italian
+    * Brazilian Portuguese
+  * Added / completed additional supported localization files:
+    * Dutch
+    * Polish
+    * Indonesian
+    * Japanese
+    * Korean
+    * Simplified Chinese
+    * Traditional Chinese
+
+### Fixes / Polish
+
+  * Fixed Masked Mega Buffoon Pack Tag queue behavior.
+
+    * It now resolves in the correct Tag queue order.
+    * It no longer waits incorrectly until Blind selection when created from other sources.
+    * It no longer risks blocking the game with a stuck event.
+  * Fixed Abyssal Tag queue behavior.
+
+    * It now resolves correctly with other queued Tags.
+    * It no longer blocks subsequent Tag effects.
+  * Improved random Tag behavior for Sigma Mime and related Tag sources.
+  * Cleaned up affected tooltip descriptions and supporting dictionary strings.
+
 ## 1.8.2 - 2026-05-23 - Localization and Stability Patch
 
 ### Localization
