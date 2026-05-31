@@ -1,5 +1,83 @@
 # Changelog — Pantomime Paradox
 
+## 1.9.1 - 2026-05-31 - Visual Polish and Balance Hotfix
+
+### Balance Changes
+
+* Updated Abyssal Tag odds.
+
+  * Negative Soul chance reduced from 30% to 15%.
+  * Negative Hydro chance increased from 70% to 85%.
+
+### Joker Changes
+
+* Updated Mime Alchemist.
+
+  * When the most played poker hand is discarded, Mime Alchemist now gives Magical edition to up to 3 random held cards without an edition.
+  * If there are no valid held-card targets, the secret Creatrix effect triggers instead.
+  * Creatrix adds a random Tag.
+  * Boss Tag is excluded from the random Tag pool.
+* Updated Wizard Mime.
+
+  * Wizard Mime now adds a random Tag when its effect triggers.
+  * The Tag is added even if there is no room to create the Potion card.
+  * Potion creation still requires room.
+  * Boss Tag is excluded from the random Tag pool.
+
+### Fixes
+
+* Fixed misleading scoring visuals for Stella Mime.
+
+  * Stella Mime now levels up a random poker hand after the played hand is scored.
+  * This prevents confusing intermediate Chips / Mult preview values during scoring.
+* Improved level-up effect messaging.
+
+  * Stella Mime now reports the specific poker hand that was leveled up.
+  * The effect no longer appears as a misleading scoring-row bonus.
+* Fixed Wizard Mime behavior when consumable slots are full.
+
+  * The random Tag is no longer blocked by lack of room for Potion.
+
+### JokerDisplay
+
+* Updated Mime Alchemist display.
+
+  * Display now shows whether the next trigger will give Magical editions or fall back to a Tag.
+  * Magical preview now supports x1, x2, and x3 target counts.
+* Updated Wizard Mime display.
+
+  * Display now reflects the Potion + Tag effect more clearly.
+  * The Tag portion is not tied to consumable slot availability.
+* Updated Stella Mime display and messaging to better match its post-scoring level-up timing.
+
+### Art / Visual Polish
+
+* Replaced several Joker sprites with cleaner, more readable pixel-art versions.
+
+  * Chrome Plate
+  * Adamant Core
+  * High Rank Sign
+  * Broken Double Six
+  * Falling Asteroid
+  * Prismatic Asteroid
+* Improved small-size readability for the updated sprites.
+* Reduced noisy texture detail in favor of flatter, clearer Art Deco-style shapes.
+
+### Localization
+
+* Updated affected localization text for Stella Mime.
+* Updated affected localization text for Mime Alchemist.
+* Updated affected localization text for Wizard Mime.
+* Updated Abyssal Tag odds text to match the new 85% / 15% split.
+* Added / updated Creatrix messaging for Mime Alchemist's secret fallback effect.
+* Cleaned up wording so the descriptions better match real trigger timing and slot requirements.
+
+### Notes
+
+* This patch focuses on post-1.9.0 cleanup, visual clarity, and behavior polish.
+* No new Jokers were added in this patch.
+* The main gameplay changes are the Mime Alchemist rework, Wizard Mime Tag behavior, Stella Mime scoring-visual fix, and Abyssal Tag odds adjustment.
+
 ## 1.9.0 - 2026-05-26 - Astral Update
 
 ### New Jokers
