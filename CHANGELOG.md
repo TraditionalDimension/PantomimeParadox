@@ -1,5 +1,116 @@
 # Changelog — Pantomime Paradox
 
+## 1.10.0 - 2026-06-07 - Shift Rerolls Update
+
+### New Feature: Shift Rerolls
+
+Added **Shift Rerolls**, an optional local shop tool focused on controlled deck-building.
+
+* Shift Rerolls can be enabled from the mod config.
+* When enabled, a draggable **Shift Rerolls** panel appears in the shop.
+* The panel allows shifting the current shop row forward or backward through a seeded list of registered shop items.
+* Shift Rerolls can transform shop cards between supported Jokers and Consumables.
+* The first Shift Reroll in a run costs **$0**.
+* Each next Shift Reroll in the same run costs **+$1**.
+* Shift Reroll cost is tracked per run.
+* Shift Rerolls are local-only and are not synchronized in Multiplayer.
+
+### Shift Reroll List
+
+Added a dedicated Shift Reroll list overlay.
+
+* The list shows all currently registered supported shop items.
+* The list order can be seeded per run.
+* The same run seed gives the same Shift Reroll order.
+* Added filters for:
+
+  * All items
+  * Jokers
+  * Consumables
+  * Tarot cards
+  * Planet cards
+  * Spectral cards
+* Added shop focus navigation for quickly jumping to the current shop cards inside the list.
+* Added support for configurable list density:
+
+  * 5 to 18 items per page.
+  * Default: 8 items per page.
+* Added an optional technical key column.
+
+  * Default: hidden.
+  * When disabled, item names get more space in the list.
+* Added compact scaling for dense list pages.
+
+### Shift Rerolls Config
+
+Added a new **Shift Rerolls** config tab.
+
+* Added toggle for enabling Shift Rerolls.
+* Added toggle for seeding the list by run seed.
+* Added toggle for triggering shop reroll effects.
+* Added toggle for wrapping the list.
+* Added configurable item count per list page.
+* Added toggle for showing item keys.
+* Added Reset Panel Position button.
+* Removed the config-side Open Shift List button to avoid menu overlay issues.
+
+### UI / UX
+
+Improved Shift Rerolls panel behavior.
+
+* The shop panel can now be dragged by its title area.
+* The panel position is remembered for the current run.
+* The default panel position now appears near the shop row instead of the upper-left area.
+* The panel remains usable after leaving and re-entering the shop.
+* Improved button behavior for `-1`, `List`, and `+1`.
+* Improved list layout readability with and without item keys.
+* Improved current-shop markers inside the list.
+
+### Multiplayer Compatibility
+
+Added basic compatibility support for **Multiplayer Experimental 0.7**.
+
+* Added a dedicated Experimental Multiplayer compatibility layer.
+* Experimental MP is detected even when its runtime finishes loading after Pantomime Paradox.
+* Host-selected Pantomime Paradox run modifiers are treated as authoritative in Experimental Multiplayer lobbies.
+* Task Mode, Hard Mode, and Impossible Mode settings can be synchronized from host to guest.
+* In Multiplayer, Task Mode is forced to the Every Ante variant.
+* In Multiplayer, Task Mode failures continue to use the money penalty behavior instead of run defeat.
+* Existing standard Multiplayer compatibility remains preserved.
+* The old CO-OP addon was not changed.
+
+### Localization
+
+Fully updated supported localization files for 1.10.0 content.
+
+* English
+* Russian
+* German
+* French
+* Italian
+* Spanish
+* Latin American Spanish
+* Brazilian Portuguese
+* Polish
+* Dutch
+* Indonesian
+* Japanese
+* Korean
+* Simplified Chinese
+* Traditional Chinese
+
+### Fixes / Polish
+
+* Fixed Shift Rerolls shop panel interaction.
+* Fixed Shift Rerolls panel position persistence during a run.
+* Fixed Shift Reroll list navigation around current shop cards.
+* Fixed Shift Reroll list readability for dense pages.
+* Fixed localization structure issues in affected localization files.
+* Preserved Chevron Deck shop behavior when Shift Rerolls are used.
+* Cleaned up Shift Rerolls config layout.
+* Cleaned up Shift Rerolls dictionary strings.
+
+
 ## 1.9.1 - 2026-05-31 - Visual Polish and Balance Hotfix
 
 ### Balance Changes
