@@ -1,5 +1,79 @@
 # Changelog — Pantomime Paradox
 
+## 1.11.0 - 2026-06-16 - Biblical Modes Update
+
+### New Optional Mode: Sacrificetro
+
+Integrated the former standalone Sacrificelatro concept into Pantomime Paradox as a new optional config-only mode.
+
+* Added Sacrificetro as a disabled-by-default run modifier.
+* Sacrificetro is controlled only from the mod config tab.
+* No New Run toggle is added for this mode.
+* When enabled, Jokers and playing cards receive a Sacrifice sticker.
+* At the end of each won round, eligible Sacrifice-stickered cards may be destroyed.
+* Default destruction chance is 1 in 3.
+* Added config options for:
+  * Enabling Sacrificetro.
+  * Affecting Jokers.
+  * Affecting playing cards.
+  * Adjusting the Sacrifice destruction odds.
+* Eternal Jokers are protected from Sacrificetro destruction and show an Eternal message instead.
+* Added legacy compatibility for the old `sac_sacrifice` sticker key.
+* Added conflict protection against the old standalone Sacrificelatro / Sacrificetro mod IDs.
+
+### New Optional Mode: Firstlastro
+
+Added Firstlastro, a new optional mode inspired by Matthew 20:16.
+
+* Added Firstlastro as a disabled-by-default run modifier.
+* Firstlastro is controlled only from the mod config tab.
+* No New Run toggle is added for this mode.
+* The first vanilla shop reroll in each shop swaps the current Joker slot limit with the current Consumable slot limit.
+* Shift Rerolls do not trigger Firstlastro.
+* The mode triggers once per shop / blind.
+* Reroll price does not matter: paid and free vanilla rerolls can both trigger the mode.
+* After the slot swap, overflow cards are removed from left to right.
+* Overflow removal checks the real current card count after every successful removal.
+* Jokers are processed before Consumables.
+* Eternal cards resist overflow removal and show an Eternal message.
+* Negative cards resist overflow removal, show a Negative message, and use the Negative sound.
+* Removed overflow cards show a Removed message and use a glass-breaking style destruction effect.
+
+### Config UI
+
+Added dedicated config tabs for the new modes.
+
+* Added a Sacrificetro config tab.
+* Added a Firstlastro config tab.
+* Added large interactive boss-token style icons for both tabs.
+* Added Biblical flavor text and tooltip lines for both modes.
+* Fixed mode icon rendering to use sharper nearest-neighbor filtering.
+* Rebuilt mode icons in strict 1x / 2x pixel-art sizes.
+
+### Multiplayer / Compatibility
+
+Improved safety around optional run modifiers.
+
+* Sacrificetro settings can be synchronized through Multiplayer lobby config when available.
+* Firstlastro remains tied to local vanilla shop reroll behavior.
+* Shift Rerolls remain independent from Firstlastro triggers.
+* Added safer config-only behavior so the new modes do not silently activate from the New Run screen.
+* Added run-state snapshot behavior where needed so mode activation remains stable during a run.
+
+### Localization
+
+Added English and Russian localization for the new modes.
+
+### Assets
+
+Added new pixel-art assets.
+
+* Added Sacrificetro boss-token icon.
+* Added Firstlastro boss-token icon.
+* Added Sacrifice sticker asset.
+* Added 1x and 2x versions for all new mode assets.
+
+
 ## 1.10.0 - 2026-06-07 - Shift Rerolls Update
 
 ### New Feature: Shift Rerolls
