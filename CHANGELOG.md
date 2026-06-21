@@ -1,5 +1,63 @@
 # Changelog — Pantomime Paradox
 
+## 1.11.1 - 2026-06-21 - Stability Hotfix
+
+### Compatibility Fixes
+
+* Updated Unbearable Deck behavior in Multiplayer / Experimental Multiplayer runs.
+
+  * In single-player runs, skipping a Blind still increases the required score as before.
+  * In Multiplayer / Experimental Multiplayer runs, skipping a Blind no longer increases the required score.
+  * Instead, Unbearable Deck now removes money equal to the current `current_money_delta` value.
+  * This Multiplayer skip penalty does not change `current_money_bonus`.
+  * This Multiplayer skip penalty does not advance or modify the boss money-penalty ladder.
+
+### Firstlastro Fixes
+
+* Improved Firstlastro swap timing.
+
+  * Overflow checks now resolve one card at a time.
+  * Each Joker / Consumable overflow check now waits at least 0.5 seconds before the next check.
+  * This makes Eternal, Negative, and Removed results easier to read during the swap sequence.
+* Updated the Firstlastro swap start message.
+
+  * The main swap message is now displayed on the screen instead of being attached to the first Joker.
+  * The message now uses the same general screen-style presentation as Unbearable Deck messages.
+* Preserved Firstlastro trigger rules.
+
+  * Firstlastro still triggers only from the first vanilla shop reroll in each shop.
+  * Shift Rerolls still do not trigger Firstlastro.
+  * Free vanilla rerolls can still trigger Firstlastro.
+
+### Asteroid Joker Balance / Clarity
+
+* Updated Falling Asteroid and Prismatic Asteroid upgrade counting.
+
+  * Asteroids now count Enhancements, Seals, and Editions as separate upgrade components.
+  * Each component contributes +1 to the upgrade count.
+  * Example: a Bonus Card with a Blue Seal now counts as 2 upgrade components.
+  * Example: an unmodified card, a Gold Card, and a Bonus Card with a Blue Seal count as 3 total upgrade components.
+* Updated JokerDisplay support for the new Asteroid counting logic.
+
+  * Display values now match the real in-game calculation.
+  * The display no longer uses the older enhancement-only count.
+
+### Config UI Polish
+
+* Updated Sacrificetro and Firstlastro config-tab token behavior.
+
+  * Restored the stable interactive boss-token style behavior for the mode icons.
+  * Preserved sharper pixel-art icon rendering.
+  * Preserved tooltip / hover support for the mode icons.
+* Kept the dedicated config tabs for Sacrificetro and Firstlastro.
+
+### Notes
+
+* This is a stability and behavior-correction patch for the 1.11.0 Biblical Modes Update.
+* No new Jokers were added in this patch.
+* No new modes were added in this patch.
+
+
 ## 1.11.0 - 2026-06-16 - Biblical Modes Update
 
 ### New Optional Mode: Sacrificetro
