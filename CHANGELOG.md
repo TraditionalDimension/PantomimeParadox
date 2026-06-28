@@ -1,5 +1,215 @@
 # Changelog — Pantomime Paradox
 
+## 1.12 - 2026-06-28 - Planetarium Update
+
+### New Jokers
+
+Added 10 new Mimes focused on poker-hand leveling and reroll-based progression.
+
+#### Space Joker Admirers
+
+Added 9 fixed-hand Mimes.
+
+* Added Aria Mime.
+
+  * After each shop reroll, has a chance to level up High Card.
+  * Has a hidden Space Joker synergy.
+* Added Bianca Mime.
+
+  * After each shop reroll, has a chance to level up Pair.
+  * Has a hidden Space Joker synergy.
+* Added Celeste Mime.
+
+  * After each shop reroll, has a chance to level up Two Pair.
+  * Has a hidden Space Joker synergy.
+* Added Dahlia Mime.
+
+  * After each shop reroll, has a chance to level up Three of a Kind.
+  * Has a hidden Space Joker synergy.
+* Added Elise Mime.
+
+  * After each shop reroll, has a chance to level up Straight.
+  * Has a hidden Space Joker synergy.
+* Added Fiona Mime.
+
+  * After each shop reroll, has a chance to level up Flush.
+  * Has a hidden Space Joker synergy.
+* Added Giselle Mime.
+
+  * After each shop reroll, has a chance to level up Full House.
+  * Has a hidden Space Joker synergy.
+* Added Helena Mime.
+
+  * After each shop reroll, has a chance to level up Four of a Kind.
+  * Has a hidden Space Joker synergy.
+* Added Isolde Mime.
+
+  * After each shop reroll, has a chance to level up Straight Flush.
+  * Has a hidden Space Joker synergy.
+
+When Space Joker is present, these Mimes may create an Orbital Tag for their assigned poker hand.
+
+#### Random Hand Level Mime
+
+Added Amelia Mime.
+
+* After each shop reroll, levels up a random visible poker hand.
+* Blueprint compatible.
+* Does not use the hidden Space Joker Orbital Tag synergy.
+
+### New Decks
+
+Added Coral Deck.
+
+* After each defeated Boss Blind, invokes Coral Bloom.
+* Coral Bloom creates a random Tag.
+* Boss Tag is excluded from the random Tag pool.
+
+Added Acid Deck.
+
+* Starts with 2 Judgement cards.
+* After each played hand or discard, invokes Oxidation.
+* Oxidation attempts to destroy a random valid Joker, playing card, or Consumable.
+* Eternal Jokers resist Oxidation.
+* Negative cards are not protected from Oxidation.
+
+### CardSleeves Compatibility
+
+Added CardSleeves support for Pantomime Paradox decks.
+
+* Added Chevron Sleeve.
+* Added Pale Sleeve.
+* Added Unbearable Sleeve.
+* Added Coral Sleeve.
+* Added Acid Sleeve.
+
+Added special deck + sleeve combo behavior.
+
+* Chevron Deck + Chevron Sleeve starts with Ancient Enlightenment instead of duplicating the normal Chevron setup.
+* Pale Deck + Pale Sleeve starts with Vouch Coup.
+* Unbearable Deck + Unbearable Sleeve starts with Negative Wraith and Negative Judgement.
+* Unbearable Deck + Unbearable Sleeve can secretly increase the required winning Ante on shop reroll.
+* Coral Deck + Coral Sleeve invokes Coral Bloom after defeated Small or Big Blinds instead of only Boss Blinds.
+* Acid Deck + Acid Sleeve creates a Negative Judgement after each defeated Boss Blind.
+
+### New Effects
+
+Added Oxidation.
+
+* Used by Acid Deck and Acid Sleeve.
+* Can target Jokers, playing cards, and Consumables.
+* Eternal Jokers resist the effect.
+* The effect now waits until after hand scoring before resolving, so it no longer visually interrupts scoring effects such as Press.
+
+Added Coral Bloom.
+
+* Used by Coral Deck and Coral Sleeve.
+* Creates a random Tag.
+* Boss Tag is excluded.
+
+### Joker Changes
+
+Updated Queen Mime.
+
+* Queen Mime now checks for Face cards instead of only Queens.
+* Pareidolia synergy is supported.
+* A numeric Straight with Pareidolia can trigger Queen Mime.
+* Debuffed cards and Stone Cards still break the condition.
+
+Updated Nebula Mime.
+
+* Rarity changed from Common to Uncommon.
+* Astral Queen synergy list now includes the new Space Joker Admirer Mimes.
+
+Updated Wizard Mime.
+
+* Rarity changed from Common to Uncommon.
+
+Updated Stella Mime, Luna Mime, Comet Countess, Falling Asteroid, Final Lesson Lady, Monochrome Mime, and the new hand-level Mimes.
+
+* Level-up messages now show the specific poker hand that was leveled up.
+* Blueprint-compatible cards now attach the message to the Blueprint copy when appropriate.
+* Hand-level effects now share safer helper logic.
+
+### Tag Fixes
+
+Fixed duplicate tag-trigger handling.
+
+* Removed redundant manual tag-trigger dispatch from custom Tags.
+* Abyssal Tag no longer causes duplicate tag-trigger reactions.
+* Masked Mega Buffoon Pack Tag no longer causes duplicate tag-trigger reactions.
+* Charm Collector now ignores duplicate trigger reports from the same Tag.
+* Monochrome Mime now ignores duplicate trigger reports from the same Tag.
+
+### JokerDisplay
+
+Added JokerDisplay support for the new hand-level Mimes.
+
+* Added display entries for all 9 fixed-hand Mimes.
+* Added display entry for Amelia Mime.
+* Added compact chance display for fixed-hand Mimes.
+* Added poker-hand reminder text for each fixed-hand Mime.
+* Hidden Space Joker Orbital Tag synergy is intentionally not shown in JokerDisplay.
+
+Improved existing JokerDisplay definitions.
+
+* Fixed Tenth Mime display counting.
+* Tenth Mime now correctly counts valid held non-Face cards.
+* Ace is now handled correctly in number-or-Ace helper logic.
+* Fixed Tenth Mime fallback percentage.
+* Fixed Jack Mime fallback percentage.
+* Updated Queen Mime display to match its Pareidolia-compatible Face-card logic.
+* Corrected several fallback values used by display previews.
+
+### Localization
+
+Fully updated supported localization files for 1.12.0 content.
+
+* English
+* Russian
+* German
+* French
+* Italian
+* Spanish
+* Latin American Spanish
+* Brazilian Portuguese
+* Polish
+* Dutch
+* Indonesian
+* Japanese
+* Korean
+* Simplified Chinese
+* Traditional Chinese
+
+Added localization for:
+
+* New decks.
+* New Jokers.
+* CardSleeves descriptions.
+* Oxidation.
+* Coral Bloom.
+* Acid Deck and Coral Deck messages.
+* Space Joker Orbital Tag messages.
+* Unbearable Deck + Unbearable Sleeve secret messages.
+* Updated Queen Mime Face-card text.
+
+### Fixes / Polish
+
+* Fixed Acid Deck and Acid Sleeve timing so Oxidation resolves after hand scoring.
+* Fixed poker-hand level-up messages that previously displayed only a generic Level Up message.
+* Fixed CardSleeves localization structure.
+* Fixed localization syntax issues across non-English localization files.
+* Fixed missing localization keys for new 1.12.0 content.
+* Fixed Russian localization wording and structure for 1.12.0.
+* Fixed CardSleeves fallback behavior for missing or alternate sleeve text.
+* Improved safety around hidden effects, delayed messages, and duplicate trigger contexts.
+
+### Notes
+
+* This update focuses on poker-hand progression, Planetarium-style synergies, CardSleeves support, new deck mechanics, localization completion, and stability polish.
+* The hidden Space Joker synergy is intentionally discoverable through play rather than fully exposed in descriptions.
+
+
 ## 1.11.1 - 2026-06-21 - Stability Hotfix
 
 ### Compatibility Fixes
