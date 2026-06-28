@@ -1,5 +1,22 @@
 # Changelog — Pantomime Paradox
 
+## 1.12.1 - 2026-06-28 - Hotfix of Planetarium Update
+
+### Fixes
+
+* Fixed Aria Mime's sprite position.
+
+  * Aria Mime was incorrectly assigned to the same atlas position as another 1.12.0 Mime.
+  * Aria Mime now uses the correct atlas coordinates.
+  * This fixes Aria Mime displaying the wrong sprite in-game, in the collection, and in card previews.
+
+### Notes
+
+* This is a small hotfix for the 1.12.0 Mime expansion.
+* No gameplay values were changed.
+* No new Jokers, decks, sleeves, consumables, or mechanics were added in this patch.
+
+
 ## 1.12.0 - 2026-06-28 - Planetarium Update
 
 ### New Jokers
