@@ -1,6 +1,6 @@
 # Changelog — Pantomime Paradox
 
-## 1.12 - 2026-06-28 - Planetarium Update
+## 1.12.0 - 2026-06-28 - Planetarium Update
 
 ### New Jokers
 
