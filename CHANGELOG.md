@@ -1,5 +1,401 @@
 # Changelog — Pantomime Paradox
 
+## 1.13.0 - 2026-07-08 - Double Act Update
+
+### New Jokers
+
+Added 31 new Jokers focused on transformation, Tags, poker-hand progression, playing-card creation, and XMult scaling.
+
+#### Double Act Family
+
+Added Double Act and 5 Jokers that can transform into it.
+
+* Added Double Act.
+
+  * At end of round, checks whether remaining Hands, remaining Discards, and the last digit of current money are equal.
+  * When the condition is met, becomes a full copy of the leftmost other Joker.
+  * The equality check happens before Gold Cards pay out.
+  * Not Blueprint compatible.
+* Added Casting Call.
+
+  * Each shop Reroll has a 1 in 3 chance to become Double Act.
+* Added Outtake.
+
+  * Each discard has a 1 in 5 chance to become Double Act.
+* Added Cue Card.
+
+  * Each played hand has a 1 in 5 chance to become Double Act.
+* Added Receipt.
+
+  * Each card purchase has a 1 in 5 chance to become Double Act.
+* Added Stage Prop.
+
+  * Each Consumable use has a 1 in 5 chance to become Double Act.
+
+All 6 transformation paths now use a step-by-step flip, transform, and reveal animation.
+
+#### Equality and Target Mimes
+
+Added 4 Mimes built around resource equality and card targeting.
+
+* Added Juliette Mime.
+
+  * Before each played hand or discard, checks whether remaining Hands and Discards are equal.
+  * When the condition is met, creates The Emperor if there is room.
+  * Blueprint compatible.
+* Added Livia Mime.
+
+  * Before each played hand or discard, checks whether remaining Hands and Discards are equal.
+  * When the condition is met, levels up a random visible poker hand.
+  * Blueprint compatible.
+* Added Mireille Mime.
+
+  * Before each discard, checks whether remaining Hands equal the last digit of current money.
+  * When the condition is met, destroys the rightmost card held in hand and earns $7.
+  * Blueprint copies the money reward without duplicating the destruction.
+* Added Katarina Mime.
+
+  * At start of round, selects a rank and suit from the full deck.
+  * Destroying matching cards creates one random non-Boss Tag for each matching card destroyed.
+  * Blueprint compatible.
+
+#### Random Tag Mimes
+
+Added 6 Mimes that can create random non-Boss Tags.
+
+* Added Nadine Mime.
+
+  * Opening a Booster Pack has a 1 in 4 chance to create a random Tag.
+* Added Odette Mime.
+
+  * Skipping a Booster Pack has a 1 in 2 chance to create a random Tag.
+* Added Rosalie Mime.
+
+  * Each shop Reroll has a 1 in 4 chance to create a random Tag.
+* Added Sabine Mime.
+
+  * Each discard has a 1 in 4 chance to create a random Tag.
+* Added Thalia Mime.
+
+  * Each Consumable use has a 1 in 5 chance to create a random Tag.
+* Added Vivienne Mime.
+
+  * Selling a card has a 1 in 4 chance to create a random Tag.
+
+All random Tag effects exclude Boss Tags and use queued popup, card-juice, Tag creation, and sound feedback based on Woman Mime's presentation flow.
+
+#### Poker-Hand and Orbital Mimes
+
+Added 7 Mimes focused on hand levels and Orbital Tags.
+
+* Added Ophelia Mime.
+
+  * Each trigger of a played card has a 1 in 6 chance to level up a random visible poker hand.
+  * Blueprint compatible.
+* Added Penelope Mime.
+
+  * Each trigger or retrigger of the first card held in hand has a 1 in 3 chance to level up a random visible poker hand.
+  * Blueprint compatible.
+* Added Aurelia Mime.
+
+  * Each played hand has a 1 in 3 chance to create an Orbital Tag for a random visible poker hand.
+  * Blueprint compatible.
+* Added Magnesia Mime.
+
+  * Each discard has a 1 in 3 chance to create an Orbital Tag for a random visible poker hand.
+  * Blueprint compatible.
+* Added Quintessa Mime.
+
+  * After each shop Reroll, has a 1 in 2 chance to level up Flush Five.
+  * If Flush Five is hidden, levels a random visible poker hand instead.
+  * With Space Joker present, has a separate 1 in 3 chance to create an Orbital Tag for the actual hand selected by the effect.
+  * Blueprint compatible.
+* Added Seraphine Mime.
+
+  * After each shop Reroll, has a 1 in 2 chance to level up Flush House.
+  * If Flush House is hidden, levels a random visible poker hand instead.
+  * With Space Joker present, has a separate 1 in 3 chance to create an Orbital Tag for the actual hand selected by the effect.
+  * Blueprint compatible.
+* Added Valeria Mime.
+
+  * After each shop Reroll, has a 1 in 2 chance to level up Five of a Kind.
+  * If Five of a Kind is hidden, levels a random visible poker hand instead.
+  * With Space Joker present, has a separate 1 in 3 chance to create an Orbital Tag for the actual hand selected by the effect.
+  * Blueprint compatible.
+
+The new Orbital Tag flow now waits for hand-level feedback before showing the Tag popup and creating the Tag.
+
+#### Boss Blind Card Creators
+
+Added 3 Jokers that create playing cards during Boss Blinds.
+
+* Added Refine.
+
+  * Each discard during a Boss Blind creates a random Enhanced playing card.
+  * Blueprint compatible.
+* Added Imprint.
+
+  * Each discard during a Boss Blind creates a random playing card with a random Edition.
+  * Blueprint compatible.
+* Added Stamp.
+
+  * Each discard during a Boss Blind creates a random playing card with a random Seal.
+  * Blueprint compatible.
+
+#### XMult Jokers
+
+Added 5 new XMult Jokers.
+
+* Added Altered Deck.
+
+  * Starts at X1 Mult.
+  * Gains X0.23 Mult for each Enhanced card in the full deck.
+* Added Marked Deck.
+
+  * Starts at X1 Mult.
+  * Gains X0.23 Mult for each card with a Seal in the full deck.
+* Added Printed Deck.
+
+  * Starts at X1 Mult.
+  * Gains X0.23 Mult for each card with an Edition in the full deck.
+* Added Patron's Aura.
+
+  * Starts at X1 Mult.
+  * Gains X0.5 Mult for every Voucher redeemed during the current run.
+  * Correctly counts Vouchers redeemed before Patron's Aura was obtained.
+* Added Consumption.
+
+  * Starts at X1 Mult.
+  * Permanently gains X0.17 Mult whenever a Consumable is used.
+  * Blueprint copies the payout without duplicating the stored gain.
+
+### Deck and Sleeve Changes
+
+Updated Coral Deck.
+
+* Coral Deck now also starts with 2 Judgement cards.
+
+Updated Acid Deck and Acid Sleeve.
+
+* Oxidation no longer attempts to trigger after every played hand and every discard.
+* Oxidation now triggers only on the first played hand and the first discard of each round.
+* The played-hand and discard triggers are tracked separately, allowing at most one trigger of each type per round.
+* CardSleeves descriptions were updated to match the new behavior.
+
+### Existing Joker Changes
+
+Updated Fifth Mime.
+
+* Reworked the effect.
+* Each played or held 5 now gives +50 Chips.
+* Removed the previous Consumable-count scaling effect.
+
+Updated Mime of Aces.
+
+* Reworked the effect.
+* Each played or held Ace now gives +5 Mult.
+* Removed the previous Straight / held-Ace / Strength-generation effect.
+* Cost reduced from $7 to $5.
+
+Updated Baron Mime.
+
+* Now starts at +1 Mult.
+* Its stored Mult can no longer fall below +1.
+
+Updated Curator Violet.
+
+* Its total multiplier now has a minimum of X1.5.
+
+Updated Emerald Mime.
+
+* Rarity changed from Rare to Uncommon.
+* Cost reduced from $12 to $8.
+
+Updated Mime Gambler.
+
+* Still creates a Standard Tag every 3 shop Rerolls.
+* Now also creates The Hanged Man when there is Consumable room.
+
+Updated Mime Agony.
+
+* Added a new end-of-round equality bonus.
+* If remaining Hands, remaining Discards, and the last digit of money are equal, may create a Luchador if there is room.
+* The original Joker and each Blueprint source can resolve their own Luchador creation.
+* Existing scoring and growth / decay behavior is preserved.
+
+Updated Jester Mime.
+
+* Still creates The Soul after 21 shop Rerolls.
+* Now also has a 25% chance to create an Abyssal Tag.
+
+Updated Uncommon Mime.
+
+* Tag reward changed to 80% Uncommon Tag / 20% Abyssal Tag.
+
+Updated Rare Mime.
+
+* Tag reward changed to 75% Rare Tag / 25% Abyssal Tag.
+
+Updated Spectral Mime.
+
+* Tag reward changed to 55% Ethereal Tag / 45% Abyssal Tag.
+
+Updated Spectral Shard.
+
+* Corrected displayed variables and text for its negative-to-positive money range.
+
+Updated Albert Mimestein.
+
+* Improved scoring-value detection when face-down-card situations hide or temporarily zero normal HUD hand values.
+* Uses live scoring Chips and scoring-hand fallbacks when needed.
+
+### Shift Rerolls
+
+Expanded Shift Reroll economy and shop compatibility.
+
+* Added a configurable price increase per Shift Reroll.
+
+  * Range: $1 to $10.
+  * Default: $4.
+  * The first Shift Reroll remains free.
+  * With the default setting, costs progress as Free -> $4 -> $8 -> $12 and so on.
+* The selected price increase is locked in when a new run starts.
+* Improved shop-row replacement.
+
+  * Unsupported or empty shop slots now fall back to normal shop-card generation.
+  * Partially unsupported shop rows can still be shifted.
+  * Shift cost and usage statistics are applied only after a successful row replacement.
+* Added selected-card preview to the Shift Reroll List.
+
+  * List rows can be clicked or confirmed to preview their card.
+  * Added safer preview failure handling.
+* Improved controller and gamepad navigation for the Shift Reroll List.
+* Added localization for the new Shift Reroll economy and behavior settings.
+
+### Blueprint and Trigger Fixes
+
+Fixed Monochrome Mime with Blueprint and other copying effects.
+
+* Blueprint now correctly copies Monochrome Mime's response to a successfully triggered Tag.
+* Duplicate-trigger protection now works without depending on the copying Joker having an `ability.extra` table.
+
+Fixed Livia Mime and Juliette Mime.
+
+* Their equality condition now compares only remaining Hands and remaining Discards.
+* The last digit of money is no longer part of their condition.
+* Mime Agony and Double Act still use the three-way Hands = Discards = money-digit condition.
+* Mireille Mime still uses Hands = money-digit.
+
+Fixed Vivienne Mime.
+
+* Base chance changed from 1 in 3 to 1 in 4.
+* Gameplay, localization variables, and JokerDisplay now agree.
+
+Improved new Tag-creation feedback.
+
+* New 1.13 Tag creators now use ordered popup, juice, Tag creation, and sound events.
+* Katarina Mime now shows one complete feedback sequence for each Tag actually created.
+* New Orbital Tag effects no longer visually overlap their hand-level messages.
+
+Improved XMult gain feedback.
+
+* Consumption now shows the exact amount gained instead of the new total XMult.
+* Charm Collector and Favorite Performance now show their XMult gain amount in Attention colour.
+
+### JokerDisplay
+
+Added JokerDisplay support for all 31 new Jokers.
+
+* Added displays for Double Act and all 5 transformation Jokers.
+* Added equality-condition displays for Juliette Mime, Livia Mime, Mireille Mime, and Double Act.
+* Added random Tag chance displays for all new Tag Mimes.
+* Added poker-hand and Orbital Tag displays for the new hand-progression Mimes.
+* Added dynamic deck-scaling displays for Altered Deck, Marked Deck, Printed Deck, Patron's Aura, and Consumption.
+* Updated Vivienne Mime to show the correct 1 in 4 chance.
+* Livia Mime and Juliette Mime now display Hands = Discards without a money-digit check.
+
+### Visuals and Feedback
+
+Improved transformation presentation.
+
+* Double Act, Casting Call, Outtake, Cue Card, Receipt, and Stage Prop now use a full flip-transform-reveal sequence.
+* Added protection against duplicate transformation queues while an animation is already in progress.
+
+Improved Tag presentation.
+
+* New random Tag creators now follow Woman Mime-style event timing and sound feedback.
+* Multi-Tag creation is presented one Tag at a time.
+* Orbital Tag creation is queued after related hand-level feedback.
+
+Improved cumulative XMult presentation.
+
+* XMult growth popups now show the amount gained rather than an ambiguous total where appropriate.
+* Gain values use Attention colour for clearer distinction from scoring payouts.
+
+### Localization
+
+Fully updated all 15 supported localization files for 1.13.0 content.
+
+* English
+* Russian
+* German
+* French
+* Italian
+* Spanish
+* Latin American Spanish
+* Brazilian Portuguese
+* Polish
+* Dutch
+* Indonesian
+* Japanese
+* Korean
+* Simplified Chinese
+* Traditional Chinese
+
+Added localization for:
+
+* All 31 new Jokers.
+* New Shift Reroll economy settings and preview behavior.
+* New transformation, Tag, Orbital Tag, playing-card creation, and Double Act status messages.
+* Updated Acid Deck and Acid Sleeve behavior.
+
+Improved existing localization.
+
+* Added the inactive `(Before Gold Cards)` timing note to Double Act.
+* Updated Livia Mime and Juliette Mime descriptions to match their Hands = Discards condition.
+* Corrected Russian wording and typo fixes, including Baron Mime's Mult text.
+* Preserved the finalized English and Russian wording except where a real gameplay or display fix required a change.
+
+### Assets
+
+Expanded and validated 1x / 2x asset support for the new content.
+
+* Added artwork for all new 1.13 Jokers.
+* Added Mime Aura assets.
+* Updated Joker, Deck, and Sleeve atlases where required by the new content.
+* Preserved paired 1x / 2x dimensions and valid atlas coordinates.
+
+### Fixes / Polish
+
+* Fixed Blueprint copying for Monochrome Mime's Tag-trigger effect.
+* Fixed Double Act family transformation timing and visual sequencing.
+* Fixed duplicate or misleading popups for new Tag creators.
+* Fixed Katarina Mime multi-Tag feedback.
+* Fixed new Orbital Tag effects visually overlapping hand-level feedback.
+* Fixed incremental XMult gain popups for cumulative XMult Jokers.
+* Fixed Vivienne Mime's chance mismatch.
+* Fixed Livia Mime and Juliette Mime equality logic and displays.
+* Improved safe handling of delayed events and copying sources.
+* Improved shop-row fallbacks and preview safety for Shift Rerolls.
+
+### Notes
+
+* This update adds 31 new Jokers.
+* No existing Joker, deck, sleeve, Consumable, Tag, or mode was removed.
+* The update focuses on Double Act transformations, Tag generation, poker-hand progression, deck-based XMult scaling, Shift Reroll expansion, Blueprint correctness, and release polish.
+* Hidden Space Joker synergies remain intentionally discoverable through play.
+
+
 ## 1.12.1 - 2026-06-28 - Hotfix of Planetarium Update
 
 ### Fixes
