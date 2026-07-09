@@ -1,5 +1,82 @@
 # Changelog — Pantomime Paradox
 
+## 1.13.1 - 2026-07-09 - Hotfix of Double Act Update
+
+### Crystal Iris Rework
+
+Updated Crystal Iris.
+
+  * Crystal Iris now triggers from Glass Cards that are either played or held in hand.
+  * Each valid Glass Card now gives +50% of the current Chips.
+  * Reduced the effect from +125% to +50% to account for the expanded trigger coverage.
+  * Played Glass Cards can trigger the effect again through retriggers.
+  * Held Glass Cards continue to trigger through held-in-hand scoring contexts.
+  * Updated JokerDisplay to count both played and held Glass Cards.
+  * Updated JokerDisplay values to match the new +50% effect.
+
+### Nadine Mime Balance
+
+Updated Nadine Mime.
+
+  * Rarity changed from Uncommon to Common.
+  * Activation chance improved from 1 in 4 to 1 in 3.
+  * Updated JokerDisplay to match the new chance.
+
+### Coral Sleeve Fixes
+
+Updated Coral Sleeve to match the 1.13.0 Coral Deck changes.
+
+  * Coral Sleeve now starts the run with 2 Judgement cards.
+  * Coral Sleeve still invokes Coral Bloom after each defeated Boss Blind.
+  * Coral Deck + Coral Sleeve no longer creates duplicate starting Judgement cards.
+  * The combined Coral Deck + Coral Sleeve setup now starts with only 2 Judgement cards total.
+  * The special deck + sleeve combination continues to invoke Coral Bloom after Small and Big Blinds, while Coral Deck handles Boss Blinds.
+
+### Shift Rerolls
+
+Improved Shift Reroll List behavior.
+
+  * The preview panel now appears immediately when the Shift Reroll List is opened.
+  * The first visible item is automatically selected when no valid visible selection is available.
+  * Changing pages now automatically selects a visible item when the previous selection is no longer on the current page.
+  * Fixed list-edge wrapping when list wrapping is enabled.
+  * Moving backward from the first item now wraps to the last item.
+  * Moving forward from the last item now wraps to the first item.
+  * Edge items are no longer skipped or ignored by Shift Rerolls.
+
+### Localization
+
+Updated supported localization files for the 1.13.1 changes.
+
+  * Updated Crystal Iris descriptions for the new played-or-held Glass Card effect.
+  * Updated Crystal Iris values from +125% to +50%.
+  * Updated Coral Sleeve descriptions to match Coral Deck behavior.
+  * Fixed the English Crystal Iris text displaying `Glasscard` instead of `Glass card`.
+
+### JokerDisplay
+
+Updated display support for changed Jokers.
+
+  * Crystal Iris now counts valid Glass Cards in both the played hand and held hand.
+  * Crystal Iris now displays the correct +50% effect.
+  * Nadine Mime now displays the correct 1 in 3 chance.
+
+### Fixes / Polish
+
+  * Fixed Coral Sleeve missing the new starting Judgement cards added to Coral Deck in 1.13.0.
+  * Fixed Coral Deck + Coral Sleeve potentially becoming inconsistent with their individual starting effects.
+  * Fixed Shift Reroll List previews not being immediately visible when opening the list.
+  * Fixed Shift Reroll List edge items failing to wrap correctly.
+  * Fixed outdated Crystal Iris and Nadine Mime display values.
+  * Fixed a missing space in the English Crystal Iris description.
+
+### Notes
+
+  * This is a gameplay, compatibility, interface, and localization hotfix for the 1.13.0 Double Act Update.
+  * No new Jokers, decks, sleeves, consumables, or mechanics were added in this patch.
+  * Existing 1.13.0 save and configuration behavior remains unchanged.
+
+
 ## 1.13.0 - 2026-07-08 - Double Act Update
 
 ### New Jokers
