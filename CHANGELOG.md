@@ -1,5 +1,62 @@
 # Changelog — Pantomime Paradox
 
+## 1.13.2 - 2026-07-11 - Tooltip and Shift Reroll Hotfix
+
+### Tooltip and Interface Fixes
+
+Updated Blue Mime and Red Mime descriptions.
+
+  * Improved the English description line breaks.
+  * Reduced excessive tooltip width and height.
+  * No gameplay values or effects were changed.
+
+Updated France Baguette descriptions.
+
+  * Clarified that the payout occurs at the start of every Boss Blind.
+  * Clarified that the payout decreases by $3 at the start of each round.
+  * The minimum payout remains $5.
+  * Updated all supported localizations to match the actual effect.
+
+Fixed Juliette Mime's linked The Emperor tooltip.
+
+  * The Emperor tooltip now receives the correct Tarot-card count variable.
+  * The tooltip now displays `Creates up to 2 random Tarot cards`.
+  * Fixed the card count previously appearing as `nil`.
+  * Updated all supported localizations.
+
+### Shift Rerolls
+
+Improved Shift Reroll affordability checks.
+
+  * Free Shift Rerolls can now be used while the player has a negative money balance.
+  * Shift Rerolls costing $0 are no longer incorrectly blocked by the current money value.
+  * Paid Shift Rerolls now respect Balatro's bankruptcy threshold.
+  * Credit Card debt allowance is now correctly included when checking whether a Shift Reroll can be afforded.
+  * Shift Rerolls are still blocked when their cost would exceed the available Credit Card limit.
+
+### Localization
+
+Updated all 15 supported localization files.
+
+  * Updated France Baguette wording to explain its recurring Boss Blind payout more clearly.
+  * Fixed Juliette Mime's The Emperor tooltip variable.
+  * Improved English tooltip formatting for Blue Mime and Red Mime.
+
+### Fixes / Polish
+
+  * Fixed oversized Blue Mime and Red Mime tooltip layouts.
+  * Fixed France Baguette's description implying that its effect applied only to a single Boss Blind.
+  * Fixed Juliette Mime's The Emperor tooltip displaying `nil`.
+  * Fixed free Shift Rerolls being unavailable at negative money values.
+  * Fixed Shift Rerolls ignoring the additional debt allowance provided by Credit Card.
+
+### Notes
+
+  * This is a small interface, localization, and economy compatibility hotfix for 1.13.1.
+  * No new Jokers, decks, sleeves, Consumables, Tags, or modes were added.
+  * No Joker gameplay values were changed.
+  * Existing saves and configuration settings remain compatible.
+
 ## 1.13.1 - 2026-07-09 - Hotfix of Double Act Update
 
 ### Crystal Iris Rework
