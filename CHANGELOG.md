@@ -1,5 +1,137 @@
 # Changelog — Pantomime Paradox
 
+## 1.13.3 - 2026-07-12 - Task and Deck Integration Hotfix
+
+### Task Mode
+
+Task objectives now track completed game actions instead of only direct shop purchases.
+
+* Changed Joker objectives from **Buy Joker** to **Obtain Joker**.
+
+  * Jokers obtained from shops, Booster Packs, Judgement, Wraith, The Soul, Tags, and other creation effects now count.
+  * Transforming an existing Joker, copying its ability, restoring it after a debuff, or loading it from a save does not count.
+
+* Changed Consumable objectives from **Buy Consumable** to **Obtain Consumable**.
+
+  * Tarot, Planet, and Spectral cards now count when they are actually added to the player's Consumable area.
+  * Using a Consumable directly inside a Booster Pack counts as using it, but not as obtaining it.
+  * Starting Consumables created during run initialization do not incorrectly complete the objective.
+
+* Changed Booster Pack objectives from **Buy Booster Pack** to **Open Booster Pack**.
+
+  * Paid, free, Tag-created, and mod-created Booster Packs now count when opened.
+  * Booster Packs opened from Masked Pack Tags now count correctly.
+  * Each Booster Pack can only be counted once.
+
+* Changed Voucher objectives from **Buy Voucher** to **Redeem Voucher**.
+
+  * Both paid and free Vouchers now count after successful redemption.
+  * A Voucher being added to the shop does not count until it is actually redeemed.
+  * The same Voucher cannot be counted more than once.
+
+* Tarot, Planet, and Spectral usage objectives now track the actual use of a physical Consumable card.
+
+  * Consumables used directly inside Booster Packs now count correctly.
+  * Cancelled, debuffed, or copied Consumable effects do not incorrectly advance the objective.
+  * Repeating a Consumable effect does not count as using another physical card.
+
+* Existing saved objectives automatically migrate to the new action types without losing progress.
+
+* Fixed failed shop purchases being able to advance purchase-related objectives.
+
+* Fixed exact-card objectives becoming permanently impossible after their target card was destroyed.
+
+  * Missing target cards are checked again after card effects finish resolving.
+  * If the original target is truly gone, the objective is safely replaced.
+
+* Preserved the existing internal Task IDs for save compatibility and objective-history tracking.
+
+* Special thanks to [@iAmIdc](https://github.com/iAmIdc) for reporting the Task Mode issue that prompted a broader audit and improvement of objective triggers.
+
+### Unbearable Deck and Sleeve
+
+* Slot reductions are now applied safely one slot at a time.
+
+  * Joker and Consumable slot limits can no longer fall below **0**.
+  * Additional slot penalties stop safely once the limit reaches **0**.
+  * Existing cards are not destroyed merely because their area becomes over capacity.
+
+* Eternal Jokers can no longer be destroyed by the random Joker-loss punishment.
+
+  * The selected Eternal Joker remains in place and displays **Eternal!**
+  * The punishment is still consumed and does not select another Joker.
+  * The incorrect **-1 Joker** message is no longer shown when an Eternal Joker survives.
+
+### Deck and Sleeve Interactions
+
+* Fixed the starting-money result of combining Pale and Unbearable effects.
+
+  * Pale alone still starts at **-$52**.
+  * Unbearable still applies its **-$15** starting penalty.
+  * Pale Deck with Unbearable Sleeve now consistently starts at **-$67**.
+  * Unbearable Deck with Pale Sleeve now consistently starts at **-$67**.
+  * Matching Deck and Sleeve effects do not apply the same starting-money penalty twice.
+
+### Chevron Deck
+
+* Duplicate Consumables and different prices remain intentional Chevron Deck behavior.
+
+* Updated Jokerophobia's description to explain that Consumables may appear again at a different price.
+
+* Improved the Chevron shop pool filtering.
+
+  * Hidden, locked, banned, omitted, softlocked, and otherwise unavailable Consumables are no longer selected for converted shop slots.
+  * Duplicate prevention was intentionally not added.
+  * Repeated Consumables with different prices remain possible.
+
+### Jimbo
+
+* Completely rewrote and expanded Jimbo's Task failure dialogue.
+
+* Added **48** more conversational reactions written in a style closer to vanilla Balatro.
+
+* Improved the variety of sentence structure, jokes, poker references, and delivery.
+
+* Reduced repetitive two-line slogan-like phrasing.
+
+* Improved line lengths and formatting to reduce oversized or awkward speech bubbles.
+
+* Updated all **15 supported localizations**.
+
+### Localization
+
+* Updated Task objective wording for the new **Obtain**, **Open**, and **Redeem** actions.
+
+* Updated the Chevron Deck explanation in all supported languages.
+
+* Added localized feedback for replaced exact-card objectives.
+
+* Added and revised all Jimbo Task failure dialogue across every supported localization.
+
+### Internal Fixes
+
+* Added guards against duplicate Joker and Consumable acquisition progress.
+
+* Added guards against duplicate Booster Pack opening progress.
+
+* Added guards against duplicate Voucher redemption progress.
+
+* Improved compatibility with Jokers, Consumables, Booster Packs, and Vouchers created by other mods.
+
+* Improved ownership checks for cards added through delayed events.
+
+* Removed the obsolete direct shop-purchase dependency from Task Mode objectives.
+
+* Cleaned up outdated Pale Deck implementation comments.
+
+### Compatibility Note
+
+* SMODS `1.0.0-beta-1814a` may calculate The Flint's Chip reduction incorrectly.
+
+  * This is an upstream Steamodded issue and is not caused by Pantomime Paradox.
+  * The issue has already been addressed in newer Steamodded development builds.
+
+
 ## 1.13.2 - 2026-07-11 - Tooltip and Shift Reroll Hotfix
 
 ### Tooltip and Interface Fixes
@@ -56,6 +188,7 @@ Updated all 15 supported localization files.
   * No new Jokers, decks, sleeves, Consumables, Tags, or modes were added.
   * No Joker gameplay values were changed.
   * Existing saves and configuration settings remain compatible.
+
 
 ## 1.13.1 - 2026-07-09 - Hotfix of Double Act Update
 
