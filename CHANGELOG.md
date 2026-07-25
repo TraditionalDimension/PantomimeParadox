@@ -1,5 +1,353 @@
 # Changelog — Pantomime Paradox
 
+## 1.14.0 - 2026-07-25 - Tag Chain Update
+
+### New Jokers
+
+Added 6 new Jokers focused on Editions, Tags, held-card retriggers, and current-Chip scaling.
+
+#### Waiter Mime
+
+Added Waiter Mime.
+
+  * Rare Joker.
+  * Buying, selling, or destroying a playing card or Joker with any Edition creates a random non-Boss Tag.
+  * Supports vanilla and modded Editions.
+  * A single transaction cannot create duplicate Tags from overlapping purchase, sale, or destruction contexts.
+  * Selling an Editioned card is not counted again as destroying that card.
+  * Blueprint compatible.
+  * Each Blueprint source resolves its own Tag creation independently.
+
+#### Lemon
+
+Added Lemon.
+
+  * Common Joker.
+  * Cannot receive an Eternal sticker.
+  * At end of round, has a 1 in 4 chance to:
+    * Create a random non-Boss Tag.
+    * Destroy itself.
+  * Successfully triggering Lemon unlocks Lime for the current run.
+  * Selling Lemon or destroying it through another effect does not unlock Lime.
+
+#### Lime
+
+Added Lime.
+
+  * Uncommon Joker.
+  * Cannot receive an Eternal sticker.
+  * Whenever a Tag other than Charm Tag is successfully used, creates a Charm Tag.
+  * After each Charm Tag created by this effect, has a 1 in 8 chance to destroy itself.
+  * Charm Tags created by Lime do not recursively trigger Lime.
+  * Duplicate Tag-use contexts are safely ignored.
+
+#### Archivist Lilac
+
+Added Archivist Lilac.
+
+  * Common Joker.
+  * Selects the same rank and suit used by The Idol each round.
+  * Each matching card held in hand gives +100% of the current Chips.
+  * Gains an additional hidden +5 percentage points for each other Common Joker owned.
+  * Archivist Lilac does not count itself toward the hidden Common Joker bonus.
+  * Matching copies can trigger independently.
+  * Held-card retriggers can repeat the effect.
+  * Blueprint compatible.
+  * Archivist Lilac is Curator Violet's sister.
+
+#### Brother Mime
+
+Added Brother Mime.
+
+  * Uncommon Joker.
+  * Retriggers cards held in hand in odd positions 2 additional times.
+  * Card positions are checked dynamically during scoring.
+  * Blueprint compatible.
+
+#### Sister Mime
+
+Added Sister Mime.
+
+  * Uncommon Joker.
+  * Retriggers cards held in hand in even positions 2 additional times.
+  * Card positions are checked dynamically during scoring.
+  * Blueprint compatible.
+
+### Domimo Rework
+
+Restored and completely reworked Domimo.
+
+  * Domimo is now visible in the collection.
+  * Domimo is the 200th visible Joker in the collection order.
+  * Charges over 2 completed rounds.
+  * After charging, selling Domimo creates:
+    * One random non-Boss Tag.
+    * The Emperor, when there is enough Consumable room.
+  * The random Tag is still created when there is no room for The Emperor.
+  * Cannot receive an Eternal sticker.
+  * Added charge-complete feedback.
+  * Added duplicate-sale protection.
+
+### New Tarot Card
+
+Added Dream.
+
+  * Creates one random non-Boss Tag.
+  * Then loses a random amount of money between $5 and `$7 + current Ante`.
+  * Dream can reduce money below $0.
+  * Uses deterministic seeded randomness.
+  * Respects Tag availability and minimum-Ante requirements.
+  * Added new artwork based on the visual language and palette of Balatro Tarot cards.
+
+### Existing Joker Changes
+
+#### Polished Payroll
+
+Updated Polished Payroll.
+
+  * The payout is no longer a fixed $6.
+  * The payout is now `$5 + current Ante`.
+  * Ante 1 therefore retains the original $6 payout.
+  * Updated localization variables and JokerDisplay support.
+  * Added compatibility handling for cards loaded from older saves.
+
+### Playing-Card Creation Compatibility
+
+Improved playing-card creation hooks for older Pantomime Paradox Jokers.
+
+The following Jokers now pass the actual created playing-card objects to `playing_card_joker_effects`:
+
+  * Second Mime.
+  * Fourth Mime.
+  * Glass Mime.
+  * Mime of Kings.
+  * Mime of Queens.
+  * Moneylender Mime.
+  * The Mimepress.
+
+This improves compatibility with:
+
+  * Hologram.
+  * Sacrificetro.
+  * Other mods listening for playing-card-added contexts.
+  * Modded effects that inspect the exact cards added to the full deck.
+
+Created cards are now announced only after their real card objects exist and have been added to the appropriate CardArea.
+
+### Oxidation Improvements
+
+Improved Joker movement after Oxidation.
+
+  * Removed forced `hard_set_cards`, `hard_set_T`, and `hard_set_VT` repositioning from the destruction flow.
+  * Remaining Jokers now move through normal CardArea alignment and interpolation.
+  * Oxidation no longer causes the entire Joker row to snap abruptly after a Joker is destroyed.
+  * Only the affected CardArea is refreshed.
+  * Existing destruction, Eternal protection, and feedback behavior is preserved.
+
+### Shared Tag Utilities
+
+Added a shared non-Boss Tag creation system.
+
+  * Random Tag generation is no longer duplicated across individual cards and deck effects.
+  * Supports optional Tag exclusions such as Boss Tag and Charm Tag.
+  * Respects `min_ante` restrictions.
+  * Uses deterministic pseudorandom seeds.
+  * Queues Tag creation safely through the Event Manager.
+  * Includes duplicate-operation protection.
+  * Coral Bloom, Dream, Waiter Mime, Lemon, Lime, and Domimo now use compatible Tag-generation behavior.
+
+### Vanilla Joker Buff System
+
+Completely refactored the optional vanilla Joker buff system.
+
+  * Combined the previous independent buff wrappers into one centralized registry.
+  * Reduced repeated global wrapping of `Card:set_ability` and `Card:calculate_joker`.
+  * Added isolated state storage for Pantomime Paradox buff values.
+  * Added proper ability-state reset handling when Jokers transform.
+  * Removed legacy `_tdpp_base_*` state after migration.
+  * Prevented stored values from one Joker center leaking into another transformed Joker.
+  * Pantomime Paradox now tracks only its own contribution instead of repeatedly restoring an old absolute base value.
+  * Dynamic changes made by other mods are preserved when possible.
+  * Disabling a buff restores the value excluding only the contribution added by Pantomime Paradox.
+  * Green Joker now retains the normal vanilla calculation chain.
+  * Splash now adds its bonus to an existing result instead of replacing another mod's Chip result.
+  * Added error logging instead of silently hiding every failed buff calculation.
+  * Added host-authoritative synchronization of vanilla-buff settings in Multiplayer.
+
+The previous vanilla-buff loader files remain as compatibility stubs, so existing load order does not need to change.
+
+### New Optional Vanilla Joker Buffs
+
+Added optional scaling buffs for 8 additional vanilla Jokers.
+
+  * Golden Joker.
+  * Delayed Gratification.
+  * Faceless Joker.
+  * Mail-In Rebate.
+  * Cloud 9.
+  * Matador.
+  * Blue Joker.
+  * Stone Joker.
+
+All new vanilla Joker buffs:
+
+  * Are disabled by default.
+  * Can be enabled independently in the Joker Buffs configuration tab.
+  * Scale using the current Ante.
+  * Use the host's settings in Multiplayer.
+
+### Splash Buff Rework
+
+Replaced the previous optional Splash bonus.
+
+When the option is enabled and exactly 5 cards are played, Splash now gives bonus Chips equal to:
+
+`current Chips - base Chips of the played poker hand`
+
+  * The bonus has a minimum of +31 Chips.
+  * The calculation uses the current Chip value when Splash is evaluated.
+  * Chip effects resolved before Splash can therefore increase its bonus.
+  * Chip effects resolved after Splash are not included in the subtraction.
+  * Existing Chip results returned by other mods are preserved.
+  * Added support for large-number environments when `to_big` is available.
+
+### Configuration Interface
+
+Expanded and reorganized the Joker Buffs configuration tab.
+
+  * Increased the number of optional vanilla Joker buff toggles from 28 to 36.
+  * Replaced the previous 3-column layout with a compact 4-column layout.
+  * Each column now contains 9 toggles.
+  * Reduced toggle and label scale so all options fit inside the configuration panel.
+  * Preserved all existing configuration keys.
+  * Added settings for the 8 new vanilla Joker buffs.
+  * Updated the Splash setting text to describe its new formula.
+
+### Multiplayer Compatibility
+
+Improved Multiplayer consistency.
+
+  * The host is now authoritative for all optional vanilla Joker buff settings.
+  * Added synchronization for the expanded 36-option buff profile.
+  * Clients no longer calculate different vanilla Joker values because of different local configuration files.
+  * Existing Hard Mode, Impossible Mode, Task Mode, Sacrificetro, and Firstlastro synchronization remains unchanged.
+
+### JokerDisplay
+
+Added and updated JokerDisplay support.
+
+  * Added Waiter Mime display support.
+  * Added Lemon activation-chance display.
+  * Added Lime destruction-chance display.
+  * Added Domimo charge and reward display.
+  * Added Archivist Lilac target-card and dynamic current-Chip percentage display.
+  * Added Brother Mime and Sister Mime held-position retrigger displays.
+  * Updated Polished Payroll to show its dynamic `$5 + Ante` payout.
+  * Updated Splash buff display behavior for the new current-Chip formula where supported.
+
+### Localization
+
+Fully updated all 15 supported localization files.
+
+  * English.
+  * Russian.
+  * German.
+  * French.
+  * Italian.
+  * Spanish.
+  * Latin American Spanish.
+  * Brazilian Portuguese.
+  * Polish.
+  * Dutch.
+  * Indonesian.
+  * Japanese.
+  * Korean.
+  * Simplified Chinese.
+  * Traditional Chinese.
+
+Added complete localization for:
+
+  * Waiter Mime.
+  * Lemon.
+  * Lime.
+  * Domimo's reworked effect.
+  * Archivist Lilac.
+  * Brother Mime.
+  * Sister Mime.
+  * Dream.
+  * New Tag and destruction feedback.
+  * All 8 new vanilla Joker buff settings.
+  * The reworked Splash buff setting.
+  * Dynamic Polished Payroll values.
+
+Improved description formatting.
+
+  * Boss Tag exclusions are now shown as inactive notes at the bottom of relevant descriptions.
+  * Consumable-room requirements are now shown as inactive notes.
+  * Simplified Domimo's main description.
+  * Removed unnecessary conditional wording from Domimo.
+  * Removed Dream's redundant note explaining that its maximum loss increases each Ante.
+  * Preserved the finalized English text as the translation source.
+  * Replaced temporary English fallback text in all non-English localizations with proper translations.
+
+### Assets
+
+Added and updated artwork for the 1.14.0 content.
+
+  * Added artwork for Waiter Mime.
+  * Added artwork for Lemon.
+  * Added artwork for Lime.
+  * Added artwork for Archivist Lilac.
+  * Added artwork for Brother Mime.
+  * Added artwork for Sister Mime.
+  * Added artwork for Dream.
+  * Retained Domimo's existing artwork.
+  * Added new shared Joker-atlas positions.
+  * Expanded the Mime atlas with an additional row.
+  * Preserved the paired 1x / 2x atlas structure.
+
+New collection positions:
+
+  * 197 — Waiter Mime.
+  * 198 — Lemon.
+  * 199 — Lime.
+  * 200 — Domimo.
+  * 201 — Archivist Lilac.
+  * 202 — Brother Mime.
+  * 203 — Sister Mime.
+
+### Fixes / Polish
+
+  * Fixed Hologram not reacting to playing cards created by several older Pantomime Paradox Jokers.
+  * Fixed playing-card-added integrations receiving missing or incomplete card objects.
+  * Fixed Sacrificetro and other mods being unable to inspect some newly created playing cards.
+  * Fixed Waiter Mime potentially triggering twice from one purchase.
+  * Fixed Waiter Mime potentially counting a sold card again as a destroyed card.
+  * Fixed copied Waiter Mime effects sharing an incorrect global duplicate guard.
+  * Fixed Lime recursively responding to the Charm Tags it creates.
+  * Fixed repeated Tag-use contexts potentially activating Lime more than once.
+  * Fixed Domimo failing to create its Tag when no Consumable slot was available.
+  * Fixed Domimo potentially resolving one sale more than once.
+  * Fixed vanilla-buff state surviving Joker transformations.
+  * Fixed Ride the Bus, Flash Card, and Red Card sharing an unsafe generic stored-base field.
+  * Fixed optional buffs overwriting dynamic values changed by other mods.
+  * Fixed Green Joker bypassing later calculation wrappers.
+  * Fixed Multiplayer clients using different vanilla-buff configurations from the host.
+  * Fixed Oxidation abruptly snapping the remaining Joker row into position.
+  * Improved compatibility with modded Editions, Tags, large numbers, transformed Jokers, and external calculate hooks.
+
+### Notes
+
+  * This update adds 6 new Jokers and 1 new Tarot card.
+  * Domimo returns as a visible, fully reworked Joker and occupies collection position 200.
+  * All new random Tag effects exclude Boss Tag.
+  * Lemon and Lime cannot receive Eternal stickers.
+  * Dream can create debt.
+  * Existing configuration keys remain compatible.
+  * The new optional vanilla Joker buffs are disabled by default.
+  * The update focuses on Tag chains, Edition interactions, held-card retriggers, current-Chip effects, cross-mod compatibility, localization, and release polish.
+
+
 ## 1.13.3 - 2026-07-12 - Task and Deck Integration Hotfix
 
 ### Task Mode
