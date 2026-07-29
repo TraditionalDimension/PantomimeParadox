@@ -1,5 +1,391 @@
 # Changelog — Pantomime Paradox
 
+## 1.15.0 - 2026-07-29 - Show-Up Update
+
+### New Jokers
+
+Added 4 new Jokers focused on poker-hand base values and shop economy.
+
+#### Blue Number
+
+Added Blue Number.
+
+  * Common Joker.
+  * Costs $4.
+  * The played poker hand gives its current base Chips again.
+  * Uses the base Chips stored by the poker hand at its current level.
+  * Does not copy Chips granted by playing cards, Jokers, Enhancements, or temporary scoring effects.
+  * Blueprint compatible.
+
+#### Red Number
+
+Added Red Number.
+
+  * Common Joker.
+  * Costs $4.
+  * The played poker hand gives its current base Mult again.
+  * Uses the base Mult stored by the poker hand at its current level.
+  * Does not copy Mult granted by playing cards, Jokers, Enhancements, or temporary scoring effects.
+  * Blueprint compatible.
+
+#### Top Billing
+
+Added Top Billing.
+
+  * Uncommon Joker.
+  * Costs $6.
+  * After each successful shop purchase or shop Reroll, pays the first digit of the remaining money.
+  * Uses the money value after the purchase or Reroll has been resolved.
+  * Supports normal shop cards, Booster Packs, and Vouchers.
+  * Has a 1 in 6 chance to destroy itself at end of round.
+  * Cannot receive an Eternal sticker.
+  * Successfully destroying itself removes Top Billing from the current run's shop pool and makes Closing Credits available.
+  * Blueprint copies the money payout without duplicating the end-of-round destruction check.
+
+#### Closing Credits
+
+Added Closing Credits.
+
+  * Uncommon Joker.
+  * Costs $8.
+  * After each successful shop purchase or shop Reroll, pays the last digit of the remaining money.
+  * Uses the money value after the purchase or Reroll has been resolved.
+  * Supports normal shop cards, Booster Packs, and Vouchers.
+  * Appears in the shop pool after Top Billing successfully destroys itself during the current run.
+  * Blueprint compatible.
+
+### Ancient Obelisk Rework
+
+Completely reworked Favorite Performance and renamed it to Ancient Obelisk.
+
+  * Remains a Rare Joker costing $8.
+  * Retains the internal `Favorite_Performance` key for save compatibility.
+  * Starts at X1 Mult.
+  * Playing one of the most-played poker hands increases its stored XMult.
+  * The increase is now calculated as:
+
+    * X0.01 Mult.
+    * Multiplied by the standard number of cards required to form the played poker hand.
+    * Multiplied by that poker hand's current base Mult.
+
+  * Examples of the fixed required-card coefficients:
+
+    * High Card uses 1 required card.
+    * Pair uses 2 required cards.
+    * Three of a Kind uses 3 required cards.
+    * Two Pair and Four of a Kind use 4 required cards.
+    * Five-card poker hands use 5 required cards.
+
+  * The required-card count is based on the poker hand itself, not the number of cards actually played or scored.
+  * Splash, Four Fingers, and additional non-scoring cards do not change the hand's required-card coefficient.
+  * If several poker hands are tied for the highest played count, all tied hands count as most-played hands.
+  * Playing any other poker hand subtracts an amount calculated from that played hand's own required-card count and base Mult.
+  * Stored XMult cannot fall below X1.
+  * Blueprint and Brainstorm copy the current XMult payout without changing the stored value.
+  * Existing saves retain their stored Ancient Obelisk XMult.
+  * Added completely new Ancient Obelisk artwork.
+
+Special thanks to `Numerous_Cobbler_706` for suggesting the base-Mult scaling concept, and to `CeruleanAoi` and everyone else who provided balance feedback.
+
+### Existing Joker Changes
+
+#### Archivist Lilac
+
+Updated Archivist Lilac.
+
+  * Rarity changed from Common to Uncommon.
+  * Cost increased to $8.
+  * The existing held-card effect and hidden Common Joker synergy are otherwise unchanged.
+  * Baseball Card now recognizes Archivist Lilac as an Uncommon Joker.
+
+#### Baron Mime
+
+Updated Baron Mime's description.
+
+  * Clarified that each face card held in hand gives Mult.
+  * No gameplay values or behavior were changed.
+
+### Dream
+
+Improved Dream's affordability and event handling.
+
+  * Dream can now always be used.
+  * The random money loss is selected before resolving the effect.
+  * The selected loss respects the current bankruptcy threshold.
+  * If the full selected loss cannot be afforded:
+
+    * Dream is still consumed.
+    * No money is lost.
+    * No Tag is created.
+    * `Nope!` feedback is displayed.
+
+  * If the selected loss can be afforded:
+
+    * Money is removed first.
+    * A random non-Boss Tag is created afterward.
+
+  * Money loss, feedback, and Tag creation now resolve through an ordered Event Manager sequence.
+  * Dream can still create debt when the selected loss remains within the allowed bankruptcy threshold.
+
+### New Show-Up Challenges
+
+Added 10 immediately available Show-Up Challenges.
+
+  * All new challenges use White Stake.
+  * All new challenges require winning on Ante 10.
+  * The challenge list now contains 40 challenges in total.
+
+#### Ruined Rhythm
+
+  * Uses Blue Deck.
+  * Starts with 4 Joker slots.
+  * Starts with an Eternal Ancient Obelisk.
+  * Starts with an Eternal vanilla Obelisk.
+
+#### Back to Basics
+
+  * Uses Blue Deck.
+  * Starts with Eternal Blue Number and Red Number.
+  * Starts with Telescope.
+
+#### First and Last
+
+  * Uses Yellow Deck.
+  * Starts with $20.
+  * Shop Rerolls cost $2.
+  * Starts with Top Billing.
+  * Starts with an Eternal Closing Credits.
+
+#### Lilac Archive
+
+  * Uses a custom 24-card deck.
+  * The deck contains 6 copies each of:
+
+    * Ace of Spades.
+    * King of Hearts.
+    * Queen of Diamonds.
+    * Jack of Clubs.
+
+  * Starts with an Eternal Archivist Lilac.
+  * Starts with a Negative Eternal Joker.
+  * The Plant is banned.
+
+#### Sibling Positions
+
+  * Uses Red Deck.
+  * Starts with 4 Joker slots.
+  * Starts with 4 Consumable slots.
+  * Starts with Eternal Brother Mime, Sister Mime, and vanilla Mime.
+  * Starts with The Chariot, The Devil, and 2 copies of The Fool.
+
+#### Table Service
+
+  * Uses a standard 52-card challenge deck.
+  * Every King and Ace starts with a Foil Edition.
+  * Starts with $20.
+  * Starts with an Eternal Waiter Mime.
+  * Starts with The Hanged Man.
+  * Starts with Magic Trick and Illusion.
+
+#### Platinum Heroine
+
+  * Uses Ghost Deck.
+  * Starts with 3 Joker slots.
+  * Starts with 4 Consumable slots.
+  * Starts with Eternal Steelworker Mime and Mimetinum Lady.
+  * Starts with 3 Gloss cards.
+  * Retains Ghost Deck's starting Hex.
+
+#### Two-Round Notice
+
+  * Uses Red Deck.
+  * Starts with 4 Consumable slots.
+  * Starts with 2 copies of Domimo.
+  * One starting Domimo has a Negative Edition.
+  * Starts with Crystal Ball.
+
+#### Orbital Window
+
+  * Uses Plasma Deck.
+  * Starts each round with 2 Hands and 2 Discards.
+  * Starts with 9 hand size.
+  * Starts with an Eternal Orbit Duchess.
+  * Starts with a Negative Eternal Oops! All 6s.
+
+#### Reroll Rehearsal
+
+  * Uses Yellow Deck.
+  * Starts with $20.
+  * Shop Rerolls cost $2.
+  * Starts with an Eternal Amelia Mime.
+  * Starts with a Negative Eternal Chaos the Clown.
+
+### Task Mode
+
+Expanded the Task Mode objective pool.
+
+#### Run Objectives
+
+Added objectives for:
+
+  * Gaining Tags.
+  * Triggering Tags.
+  * Upgrading any poker hand.
+  * Adding playing cards to the deck.
+  * Destroying playing cards.
+
+#### Every Ante Objectives
+
+Added objectives for:
+
+  * Playing exactly 1 card.
+  * Playing exactly 3 cards.
+  * Playing exactly 5 cards.
+  * Discarding exactly 1 card.
+  * Discarding exactly 3 cards.
+  * Discarding exactly 5 cards.
+  * Winning a round in exactly 1 hand.
+  * Winning a round without using a discard.
+  * Winning a round with at least 2 Hands remaining.
+  * Winning a round with at least 1 Discard remaining.
+
+#### Task Selection
+
+  * Reduced the relative weight of several frequently selected basic objectives.
+  * Improved objective-family grouping to reduce repetitive task combinations.
+  * Added feasibility checks based on current hand size, Hands, and Discards.
+  * Added tracking for hand upgrades, playing-card creation, playing-card destruction, Tag creation, Tag activation, and round completion.
+
+### Shop Purchase Compatibility
+
+Added a shared money-digit purchase system for Top Billing and Closing Credits.
+
+  * Normal shop-card purchases are detected after payment.
+  * Voucher redemption is detected as a successful shop purchase.
+  * Booster Pack purchases are detected through the pack-opening purchase route.
+  * Packs opened through Tags, challenges, or free creation effects are not incorrectly counted as paid shop purchases.
+  * Multiple copies and Blueprint sources use the same post-action money snapshot.
+  * Duplicate purchase contexts cannot pay the same Joker twice for one action.
+  * Buying either money-digit Joker does not cause that same Joker to pay for purchasing itself.
+  * Reroll payouts continue to use the money remaining after the Reroll cost is paid.
+
+### JokerDisplay
+
+Added and updated JokerDisplay support for the 1.15.0 content.
+
+  * Added Blue Number display support.
+    * Shows the selected poker hand's base Chips.
+    * Displays `Select hand` instead of technical `Unknown` or `NULL` values when no hand is selected.
+
+  * Added Red Number display support.
+    * Shows the selected poker hand's base Mult.
+    * Displays `Select hand` instead of technical `Unknown` or `NULL` values when no hand is selected.
+
+  * Added Top Billing display support.
+    * Shows its first-digit payout rule.
+    * Shows the current destruction probability.
+
+  * Added Closing Credits display support.
+    * Shows its last-digit payout rule.
+
+  * Updated Ancient Obelisk display support.
+    * Shows its current stored XMult.
+    * Shows the current most-played poker hand.
+    * Supports ties between multiple most-played poker hands.
+
+### Challenge Interface
+
+Simplified custom challenge target text.
+
+  * Challenge rules now display a minimal localized `Win on Ante #1#` line.
+  * Removed the redundant visible Stake-level line.
+  * Existing mechanical Stake rules remain unchanged.
+  * Preserved special challenge-specific rule lines where applicable.
+
+### Localization
+
+Updated all 15 supported localization files.
+
+  * English.
+  * Russian.
+  * German.
+  * French.
+  * Italian.
+  * Spanish.
+  * Latin American Spanish.
+  * Brazilian Portuguese.
+  * Polish.
+  * Dutch.
+  * Indonesian.
+  * Japanese.
+  * Korean.
+  * Simplified Chinese.
+  * Traditional Chinese.
+
+Added complete localization for:
+
+  * Ancient Obelisk and its new base-Mult formula.
+  * Blue Number.
+  * Red Number.
+  * Top Billing.
+  * Closing Credits.
+  * All 10 new Show-Up Challenge names.
+  * The simplified Ante target rule.
+  * Updated Dream behavior.
+  * Updated Baron Mime wording.
+  * Updated Boss Tag exception notes.
+
+  * Preserved each language's appropriate writing system and localized terminology.
+  * Removed temporary English fallback text from the new 1.15.0 entries.
+  * Preserved the finalized English localization as the translation source.
+
+### Assets
+
+Added and updated artwork for the 1.15.0 content.
+
+  * Added artwork for Blue Number.
+  * Added artwork for Red Number.
+  * Added artwork for Top Billing.
+  * Added artwork for Closing Credits.
+  * Replaced Favorite Performance's artwork with the new Ancient Obelisk scene.
+  * Updated both 1x and 2x Joker atlases.
+  * Added the new Jokers after Sister Mime in the shared Mime atlas.
+
+### Fixes / Polish
+
+  * Fixed Booster Pack purchases not activating Top Billing and Closing Credits.
+  * Fixed Voucher purchases potentially using a different purchase route from normal shop cards.
+  * Fixed money-digit payouts using a value captured before the action was fully resolved.
+  * Fixed overlapping shop contexts potentially creating duplicate payouts.
+  * Fixed Blue Number and Red Number displays showing `Unknown` or `NULL base`.
+  * Fixed long poker-hand names being cut off in the Blue Number and Red Number displays.
+  * Fixed Ancient Obelisk failing to recognize ties between several most-played poker hands.
+  * Fixed Dream becoming unusable when the maximum possible random loss could not be afforded.
+  * Fixed Dream creating a Tag before its money-loss animation had finished.
+  * Improved Event Manager ordering for Dream and the new shop-purchase effects.
+  * Improved compatibility with Blueprint, Brainstorm, Credit Card debt, Vouchers, Booster Packs, and modded shop effects.
+
+### Compatibility
+
+  * Ancient Obelisk retains the internal `Favorite_Performance` key.
+  * Existing Favorite Performance and Ancient Obelisk saves remain compatible.
+  * Existing stored Ancient Obelisk XMult is preserved.
+  * Existing configuration keys remain compatible.
+  * Top Billing's destruction unlock is stored only for the current run.
+  * No existing Joker, Consumable, Challenge, or localization keys were renamed.
+
+### Notes
+
+  * This update adds 4 new Jokers.
+  * This update completely reworks and renames 1 existing Rare Joker.
+  * This update adds 10 new Show-Up Challenges.
+  * The challenge list now contains 40 challenges.
+  * All new Show-Up Challenges end on Ante 10 at White Stake.
+  * Task Mode received new objective types and tracking hooks.
+  * The new Task Mode objectives did not receive full regression coverage before this release.
+  * The update focuses on stronger-poker-hand incentives, shop economy, challenge variety, localization, and release polish.
+
+
 ## 1.14.0 - 2026-07-25 - Tag Chain Update
 
 ### New Jokers
