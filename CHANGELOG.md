@@ -1,5 +1,319 @@
 # Changelog — Pantomime Paradox
 
+## 1.15.1 - 2026-08-01 - Turkish Balatro Update
+
+### Ancient Obelisk
+
+Updated Ancient Obelisk's penalty condition.
+
+* Playing one of the most-played poker hands still increases its stored XMult.
+* Playing another poker hand with the same required-card count as any most-played hand is now neutral.
+  * The stored XMult is neither increased nor decreased.
+* The penalty is now applied only when the played hand requires a different number of cards from every most-played hand.
+* If several poker hands are tied for the highest played count, the required-card counts of all tied hands are considered safe.
+* The increase and penalty amounts remain unchanged.
+* The calculation still uses:
+  * The played hand's required-card count.
+  * The played hand's current base Mult.
+  * X0.01 per required card for each base Mult.
+* Stored XMult still cannot fall below X1.
+* Added required-card-count handling for poker hands added by other mods.
+* Existing stored Ancient Obelisk XMult remains save compatible.
+
+### Show-Up Challenge Reworks
+
+Expanded 4 of the Show-Up Challenges with unique rules or matching Pantomime Paradox decks.
+
+#### Back to Basics
+
+Updated Back to Basics.
+
+* After playing-card scoring is completed, Chips are reset to the current base Chips of the played poker hand.
+* The reset occurs before global Joker scoring.
+* Mult gained from played cards is preserved.
+* Blue Number, Red Number, and later Joker effects still apply normally.
+* Poker-hand levels and Blind modifications to the hand's base values remain supported.
+* Added the visible rule:
+  * `Played cards give no Chips`
+
+#### Sibling Positions
+
+Updated Sibling Positions.
+
+* Played cards still determine the poker hand.
+* Before held-in-hand effects are calculated:
+  * Chips are reset to the poker hand's base Chips.
+  * Mult is reset to the poker hand's base Mult.
+* Held-in-hand abilities are then calculated normally.
+* After all remaining scoring effects finish, the stored base and held-in-hand result becomes the final score.
+* Numeric scoring contributions from played cards, global Jokers, Consumables, and final deck scoring effects are therefore removed.
+* Utility and non-scoring effects can still resolve normally.
+* The challenge continues to start with:
+  * Eternal Sister Mime.
+  * Eternal Mime.
+  * Eternal Brother Mime.
+  * The Chariot.
+  * The Devil.
+  * Two copies of The Fool.
+* Added the visible rule:
+  * `Only poker hand base and held cards score`
+
+#### Two-Round Notice
+
+Updated Two-Round Notice.
+
+* The challenge now uses Unbearable Deck.
+* The two starting Domimo Jokers remain unchanged.
+* Crystal Ball remains the starting Voucher.
+* The challenge now inherits the full Unbearable Deck rules and difficulty.
+
+#### Lilac Archive
+
+Updated Lilac Archive.
+
+* The challenge now uses Acid Deck.
+* Preserved the special 24-card starting deck:
+  * 6 Aces of Spades.
+  * 6 Kings of Hearts.
+  * 6 Queens of Diamonds.
+  * 6 Jacks of Clubs.
+* The challenge now receives Acid Deck's starting Judgement cards and Oxidation effects.
+* Archivist Lilac and the Negative Eternal Joker remain unchanged.
+* The Plant remains banned.
+
+### Shift Rerolls
+
+Significantly expanded the Shift Rerolls configuration and interface.
+
+#### Configuration Layout
+
+Rebuilt the Shift Rerolls configuration tab.
+
+* Replaced the previous single vertical column with a structured 2 × 2 layout.
+* Added separate sections for:
+  * Economy.
+  * Behavior.
+  * List View.
+  * Interface.
+* Improved spacing, alignment, readability, and controller navigation.
+* Existing Shift Rerolls configuration keys remain compatible.
+
+#### Boss Blind Price Reduction
+
+Added a configurable Shift Reroll price reduction after defeating a Boss Blind.
+
+* Default reduction: $1.
+* Configurable from $0 to $10.
+* The reduction is applied to the current Shift Reroll price.
+* The current price cannot be reduced below $0.
+* The reduction is applied only once for each defeated Boss Blind.
+* Setting the reduction to $0 disables this behavior.
+* The selected reduction is locked when a new run starts.
+* Continue Run preserves:
+  * The selected reduction.
+  * The current Shift Reroll price.
+  * The already processed Boss Blind state.
+
+#### Panel Sizes
+
+Added 3 selectable Shift Rerolls panel sizes.
+
+* Small:
+  * Uses the previous panel size.
+* Medium:
+  * Uses larger text, buttons, spacing, and interaction areas.
+* Large:
+  * Uses the largest text, buttons, spacing, and interaction areas.
+* Changing the size rebuilds the panel without resetting its current-run position.
+* Panel position clamping remains supported.
+
+#### Shift Reroll List
+
+Linked the Shift Reroll List window to the selected panel size.
+
+The following elements now scale between Small, Medium, and Large:
+
+* List window dimensions.
+* Header text.
+* Informational text.
+* Filter buttons.
+* Table rows.
+* Column widths.
+* Navigation buttons.
+* Close button.
+* Preview area.
+* Preview card.
+* Padding and interaction areas.
+
+The configured number of items per page remains independent from the selected panel size.
+
+### Hard Mode and Impossible Mode
+
+Added an optional starting Coupon Tag.
+
+* Added the configuration option:
+  * `Start Hard/Impossible Mode with a Coupon Tag`
+* Enabled by default.
+* Starting a new run with Hard Mode grants 1 Coupon Tag.
+* Starting a new run with Impossible Mode grants 1 Coupon Tag.
+* Enabling Hard Mode and Impossible Mode together still grants only 1 Coupon Tag.
+* The Coupon Tag is not added when the option is disabled.
+* The Coupon Tag is not added to Challenge runs.
+* Continue Run does not create another Coupon Tag.
+* Added duplicate-operation protection.
+
+### Multiplayer Compatibility
+
+Expanded compatibility for the new Hard/Impossible Coupon Tag option.
+
+* Added support for standard Multiplayer.
+* Added support for Multiplayer Experimental.
+* The host is authoritative for the Coupon Tag configuration.
+* Hard Mode, Impossible Mode, and Coupon Tag settings are synchronized together.
+* Clients cannot create additional Coupon Tags because of different local configuration files.
+* Hard Mode and Impossible Mode together still create only one Coupon Tag.
+* Existing Hard Mode, Impossible Mode, and Task Mode synchronization remains supported.
+
+### Mod Configuration Page
+
+Completely redesigned the main Pantomime Paradox information page.
+
+* Replaced the previous long description paragraph with a compact custom interface.
+* Added a turquoise visual theme.
+* Added the author line:
+  * `Author: TraditionalDimension`
+* Added the headline:
+  * `This is the Turkish Balatro Update!`
+* Added separate recommendation badges for:
+  * Hard Mode.
+  * Task Mode.
+  * Shift Rerolls.
+* Added the recommendation:
+  * Try each mode separately.
+  * Then mix them together.
+* Added the thank-you message:
+  * `Thanks to everyone who plays Pantomime Paradox!`
+* Added a compact mod name and version line.
+* Improved text contrast, spacing, visual hierarchy, and color harmony.
+
+### Dream
+
+Improved Dream's failed-use feedback.
+
+* Replaced the small `Nope!` status message with a large attention popup.
+* The popup now uses the same visual presentation as The Mimepress.
+* Dream's Tag creation, money loss, debt behavior, and Event Manager ordering remain unchanged.
+
+### Brother Mime and Sister Mime
+
+Updated the English descriptions to more closely follow the wording of vanilla Mime.
+
+#### Brother Mime
+
+Now uses:
+
+`Retrigger all odd-position card held in hand abilities 2 additional times`
+
+#### Sister Mime
+
+Now uses:
+
+`Retrigger all even-position card held in hand abilities 2 additional times`
+
+* Gameplay behavior remains unchanged.
+* Brother Mime still affects odd-position cards.
+* Sister Mime still affects even-position cards.
+* Both remain Blueprint compatible.
+
+### Content Availability
+
+Disabled normal loading for 5 Jokers:
+
+* Circus at Night
+* Livia Mime.
+* Odette Mime.
+* Rosalie Mime.
+* Sabine Mime.
+* Thalia Mime.
+* Vivienne Mime.
+
+Their source files and localization entries remain in the mod.
+
+### Localization
+
+Updated all 15 supported localization files.
+
+* English.
+* Russian.
+* German.
+* French.
+* Italian.
+* Spanish.
+* Latin American Spanish.
+* Brazilian Portuguese.
+* Polish.
+* Dutch.
+* Indonesian.
+* Japanese.
+* Korean.
+* Simplified Chinese.
+* Traditional Chinese.
+
+Added or updated localization for:
+
+* Ancient Obelisk's new neutral and penalty conditions.
+* Back to Basics' special scoring rule.
+* Sibling Positions' special scoring rule.
+* Brother Mime and Sister Mime descriptions.
+* Shift Rerolls Boss Blind price reduction.
+* Shift Rerolls panel sizes.
+* The Hard/Impossible Coupon Tag option.
+* The redesigned Pantomime Paradox information page.
+* The shortened thank-you message.
+* Interface labels and configuration hints.
+
+### Fixes / Polish
+
+* Fixed Back to Basics and Sibling Positions scoring rules not applying under Steamodded `1.0.0-beta-1814a`.
+* Replaced one fragile large Lovely pattern with smaller scoring-pipeline insertions.
+* Fixed challenge scoring hooks failing because of differences in the Steamodded-generated `state_events.lua`.
+* Fixed Sibling Positions potentially retaining numeric effects resolved after held-in-hand scoring.
+* Fixed the special challenge scoring state potentially being unavailable when the final reset was reached.
+* Confirmed that challenge-only scoring modifiers are stored in the current run and do not carry into later runs.
+* Improved Shift Rerolls panel and list scaling.
+* Improved Shift Rerolls configuration organization.
+* Improved UI interaction areas for larger Shift Rerolls sizes.
+* Improved the visual consistency of the main mod information page.
+* Improved the contrast of the recommendation and thank-you text.
+* Added safe duplicate protection for the starting Coupon Tag.
+* Preserved Continue Run behavior for all new run-specific settings.
+
+### Compatibility
+
+* Existing Ancient Obelisk saves remain compatible.
+* Existing stored Ancient Obelisk XMult is preserved.
+* Existing Shift Rerolls configuration values remain compatible.
+* Missing new configuration values are automatically initialized.
+* Existing runs without a stored Boss Blind reduction use safe fallback values.
+* Challenge scoring effects activate only inside their corresponding challenges.
+* Starting a new run creates a fresh modifier table and clears previous challenge rules.
+* Continue Run preserves the correct challenge rules.
+* No existing Joker, Challenge, Consumable, Tag, or localization keys were renamed.
+* Improved compatibility with Steamodded `1.0.0-beta-1814a`.
+* Improved compatibility with standard Multiplayer and Multiplayer Experimental.
+
+### Notes
+
+* This update does not add new Jokers.
+* This update expands 4 existing Show-Up Challenges.
+* Ancient Obelisk's growth and penalty amounts were not changed.
+* Shift Rerolls now supports configurable Boss Blind discounts and 3 interface sizes.
+* Hard Mode and Impossible Mode can now start with a Coupon Tag.
+* The new Coupon Tag option is enabled by default.
+* The main mod information page has been fully redesigned.
+* The update focuses on challenge identity, Ancient Obelisk flexibility, Shift Rerolls usability, Multiplayer consistency, localization, and interface polish.
+
+
 ## 1.15.0 - 2026-07-29 - Show-Up Update
 
 ### New Jokers
