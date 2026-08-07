@@ -1,5 +1,114 @@
 # Changelog — Pantomime Paradox
 
+## 1.15.2 - 2026-08-07 - Encore Fixes Update
+
+### Junior Mime Rework
+
+Completely reworked Junior Mime.
+
+* Junior Mime now selects a random poker hand, similarly to To Do List.
+* Playing the currently listed poker hand creates a random Tag.
+* Boss Tag cannot be created by this effect.
+* The required poker hand changes at end of round.
+* The currently required poker hand is shown in the Joker's description and JokerDisplay.
+* Blueprint compatible.
+* Each Blueprint source can create its own Tag when the required poker hand is played.
+* If the generated Tag is an Orbital Tag, it receives a valid poker hand instead of being created without an orbital target.
+
+### Mime Parodist
+
+Improved Mime Parodist's Edition compatibility and held-card retriggers.
+
+* Edition bonuses are no longer limited to hardcoded Foil, Holographic, and Polychrome checks.
+* Added support for standard numerical Edition fields used by modded Editions:
+  * Chips.
+  * Mult.
+  * XMult.
+* Improved detection of retriggerable held-card effects.
+* Fixed some Editioned held cards failing to repeat their end-of-round abilities.
+* Gold Cards with an Edition can now correctly repeat their held-in-hand end-of-round payout.
+* Improved compatibility with custom and modded Editions.
+* Removed empty effect results that could be returned when no actual bonus was produced.
+
+### Receipt
+
+Improved Receipt's shop-purchase trigger.
+
+* Receipt now recognizes the same successful shop-purchase routes used by the mod's shop economy systems.
+* Normal shop-card purchases are supported.
+* Voucher purchases are supported.
+* Purchased Booster Packs are supported.
+* Booster Packs opened for free through Tags or other non-purchase effects are not counted.
+* Buying Receipt itself does not trigger its own transformation check.
+* Duplicate purchase contexts cannot perform multiple transformation checks for the same transaction.
+* Updated its description from `card purchase` to `shop purchase` to match the expanded behavior.
+
+### Double Act Transformations
+
+Improved Jokers that transform into Double Act.
+
+* Transforming into Double Act now immediately recalculates the card's cost and sell value.
+* Fixed transformed cards potentially retaining pricing information from their previous Joker.
+* The shared fix applies to all Jokers using the Double Act transformation helper.
+
+### Prism of Edith
+
+Cleaned up Prism of Edith's Edition handling.
+
+* Confirmed that Prism of Edith accepts any non-empty Edition rather than using a vanilla-Edition whitelist.
+* Vanilla and modded Editions remain supported.
+* Removed an unnecessary empty effect result when no scoring bonus is produced.
+
+### JokerDisplay
+
+Audited and corrected JokerDisplay formatting across Pantomime Paradox.
+
+* Fixed several XMult displays using normal Mult text formatting instead of the proper XMult presentation.
+* Corrected XMult presentation for:
+  * Patron's Aura.
+  * Altered Deck.
+  * Marked Deck.
+  * Printed Deck.
+  * Consumption.
+* Fixed inactive-text colouring for separators, brackets, and supporting text.
+* Corrected formatting for:
+  * Nurse Mime.
+  * Synthy Mime.
+  * Top Billing.
+  * Closing Credits.
+  * Comet Countess.
+* Separators such as `/`, brackets, and other secondary text now consistently use inactive colouring where appropriate.
+* Corrected Top Billing and Closing Credits reminder-text colours.
+* Updated Junior Mime's display for its completely reworked effect.
+
+### Localization
+
+Updated localization text affected by the gameplay changes.
+
+* Updated Junior Mime's description for its new poker-hand and Tag mechanic.
+* Updated Receipt wording to describe a shop purchase rather than only a card purchase.
+* Updated Mime Parodist wording to reflect its support for Editions beyond the vanilla Edition set.
+* Updated the affected strings across all 15 supported localization files.
+
+### Fixes / Polish
+
+* Fixed some Edition bonuses displaying or resolving incorrectly through Mime Parodist.
+* Fixed Editioned Gold Cards potentially failing to repeat their end-of-round Gold Card effect through Mime Parodist.
+* Fixed Receipt not recognizing purchased Booster Packs.
+* Fixed Receipt potentially processing overlapping purchase contexts.
+* Fixed transformed Double Act cards potentially retaining an outdated cost or sell value.
+* Fixed incorrect XMult styling in several JokerDisplay definitions.
+* Fixed active colours leaking into inactive separators and brackets in several JokerDisplay reminder lines.
+* Improved random Tag creation safety for Orbital Tags.
+* Improved compatibility with modded Editions and shop-purchase routes.
+
+### Notes
+
+* This update does not add new Jokers.
+* Junior Mime receives a complete gameplay rework.
+* The update focuses on Edition compatibility, shop-purchase consistency, Double Act transformations, JokerDisplay accuracy, and general polish.
+
+
 ## 1.15.1 - 2026-08-01 - Turkish Balatro Update
 
 ### Ancient Obelisk
