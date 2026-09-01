@@ -1,5 +1,252 @@
 # Changelog — Pantomime Paradox
 
+## 1.16.0 - 2026-09-01 - Compatibility Update
+
+### SMODS Run Select Compatibility
+
+Updated Pantomime Paradox for the new native Steamodded Run Select system.
+
+  * Added a dedicated `Mime Modes` page to the native SMODS Run Select screen.
+  * Hard Mode, Impossible Mode, and Task Mode settings can now be configured directly from the new run setup interface.
+  * Preserved compatibility with older run setup implementations.
+  * Preserved fallback support for Galdur-based run selection.
+  * Improved run-setting synchronization when starting a new run.
+  * Fixed the custom Run Select page displaying `ERROR` instead of `Mime Modes`.
+
+### New Vouchers
+
+Added 2 new Vouchers focused on Booster Pack Jokers and shop rerolls.
+
+#### Contract of Jimbo
+
+  * Jokers appearing inside Booster Packs have their gameplay Editions and Stickers removed.
+  * Selecting a Joker from a Booster Pack triples its sell value.
+  * Deck/stake completion stickers are not treated as gameplay Stickers.
+
+#### Showman's Secret
+
+  * Added as the upgrade to Contract of Jimbo.
+  * Preserves the effects of Contract of Jimbo.
+  * Every shop Reroll refreshes the Booster Pack slots in the Shop.
+  * Every shop Reroll also has a `p in 42` chance to give Negative Edition to a random owned Joker or Consumable.
+  * `p` uses the current global probability value.
+  * Every eligible owned Joker and Consumable has equal selection weight.
+  * Debuffed cards and cards that are already Negative cannot be selected.
+  * If no valid target exists after a successful probability roll, the effect silently does nothing.
+
+### Joker Reworks / Balance
+
+#### Mimeflation
+
+Reworked Mimeflation into an Interest-based Chips scaling Joker.
+
+  * Each $1 of Interest earned adds +3 permanent Chips.
+  * Mimeflation gives its accumulated Chips during scoring.
+  * Added Blueprint compatibility.
+  * Blueprint copies the current Chips bonus without duplicating permanent accumulation.
+
+#### Mime's Box
+
+Reworked Mime's Box probability handling.
+
+  * After each played hand, its reward roll now uses the current global probability value.
+  * Reward chance is displayed as `p in 2`.
+  * Self-destruction chance is now `1 in (3 + p)`.
+  * Increasing the global probability therefore improves the reward chance while reducing the destruction chance.
+  * Blueprint copies the reward roll but does not copy the self-destruction roll.
+  * Improved independent seeded rolls for multiple Mime's Box / Blueprint effects.
+  * Improved Consumable creation and Consumable-slot handling.
+
+#### Mime's Reality
+
+Improved and stabilized Mime's Reality.
+
+  * After charging for 2 rounds, selling it reduces Ante by 1.
+  * Destroys 5 random valid playing cards.
+  * Card destruction is intentionally skipped if the deck contains 11 or fewer valid cards.
+  * Loses two-fifths of current money, with a minimum loss of $15.
+  * Improved destruction handling through the current SMODS card-destruction pipeline.
+  * Prevented the sell effect from resolving more than once.
+
+#### Penelope Mime
+
+  * Penelope Mime now checks every card held in hand instead of only the first held card.
+  * Every trigger / retrigger of an eligible held card can independently activate her effect.
+  * Rarity changed from Uncommon to Rare.
+  * Improved Blueprint source handling.
+
+#### Katarina Mime
+
+Completely reworked Katarina Mime.
+
+  * At start of round, selects a suit that still exists in the player's deck.
+  * Each played or discarded card of the selected suit increases the current payout by $1.
+  * Payout is capped at $10 per round.
+  * Wild Cards correctly count as the selected suit.
+  * The accumulated payout is awarded at end of round and then reset.
+  * Rarity changed from Uncommon to Common.
+  * Cost reduced from $7 to $5.
+  * Katarina Mime is no longer Blueprint compatible.
+
+#### Curator Violet
+
+  * Adjusted Curator Violet's copy-based XMult formula.
+  * Her XMult now starts from X1.5 before adding the bonus from matching copies in the full deck.
+
+### Olo Mime
+
+Added a special interaction between Olo Mime and Showman's Secret.
+
+  * Normally, Olo Mime continues to refresh Shop Booster Pack slots after each Reroll.
+  * While Showman's Secret is active, its redundant Booster refresh is replaced by a random non-Boss Tag.
+
+### Tag Effect System
+
+Reworked the internal Tag creation pipeline used by Pantomime Paradox Jokers.
+
+  * Tag-producing Jokers now resolve each trigger as one synchronized action.
+  * Popup text, Joker animation, Tag creation, and Tag sound now resolve together before moving to the next Joker.
+  * Fixed cases where all popup messages appeared first and Tag animations happened afterward.
+  * Fixed the inverse case where Tag animations resolved before their popup messages.
+  * Fixed timing desynchronization with multiple Tag-producing Jokers.
+  * Fixed timing desynchronization with Blueprint copies.
+  * Blueprint-compatible Tag Jokers now animate the Blueprint card when the copied effect resolves.
+  * Multi-Tag effects remain grouped with the Joker that created them.
+  * Consolidated common Tag creation helpers to reduce inconsistent event behavior.
+
+### Tag Animation Polish
+
+Standardized Tag-producing Joker animations.
+
+  * Added a common directional Tag "kick" animation.
+  * Tag-producing Jokers now consistently kick toward the right when creating Tags.
+  * Increased the animation impact by approximately 15% compared with the previous Woman Mime baseline.
+  * Removed random left/right rotation from the standardized Tag animation.
+  * Removed duplicate automatic juice animations from affected Tag effects.
+  * Updated Junior Mime and other affected Jokers to use the same common animation route.
+
+### Dream
+
+Fixed the Dream Tarot card after the Tag-system refactor.
+
+  * Dream now uses a dedicated Consumable Tag route instead of the Joker Tag animation route.
+  * Restored the Tarot activation sound.
+  * Restored the `+1 Tag` popup.
+  * Dream no longer uses the directional Joker Tag kick.
+  * Improved timing between Tarot activation, popup, and Tag creation.
+
+### Tag Joker Fixes
+
+Updated affected Tag-producing Jokers and supporting effects to use the synchronized Tag pipeline.
+
+This includes affected behavior for:
+
+  * Woman Mime
+  * Junior Mime
+  * Marcel Mime
+  * Charlie Mime
+  * Broker Mime
+  * Lady Mime
+  * Sigma Mime
+  * Gamma Mime
+  * Knight Mime
+  * Mage Mime
+  * Rare Mime
+  * Uncommon Mime
+  * Spectral Mime
+  * Sailor Mime
+  * Man Mime
+  * Mime Controller
+  * Mime Gambler
+  * Jester Mime
+  * Silent Scepter
+  * Mimetracte
+  * Mime Alchemist
+  * Wizard Mime
+  * Vouch-Coup
+  * Orbit Duchess
+  * Domimo
+  * and other shared Tag-producing effects
+
+### Config / UI
+
+Improved the Pantomime Paradox configuration interface.
+
+  * Added `Enable all buffs` button to the Joker Buffs tab.
+  * Added `Disable all buffs` button to the Joker Buffs tab.
+  * Bulk buff changes are saved through the mod configuration.
+  * Added localization support for the new `Mime Modes` Run Select page.
+
+### Multiplayer Compatibility
+
+Improved Multiplayer detection and compatibility initialization.
+
+  * Improved detection of standard Multiplayer.
+  * Improved detection of Multiplayer Experimental.
+  * Added support for Multiplayer components that finish initializing after Pantomime Paradox.
+  * Added late compatibility bridge initialization.
+  * Added detection for situations where both Multiplayer variants are enabled.
+  * Added an in-menu warning when both Multiplayer variants are detected.
+  * Preserved existing Pantomime Paradox Multiplayer compatibility behavior.
+
+### Localization
+
+Updated and synchronized all supported localizations for 1.16.0.
+
+  * English
+  * Russian
+  * German
+  * French
+  * Italian
+  * Spanish
+  * Latin American Spanish
+  * Brazilian Portuguese
+  * Polish
+  * Dutch
+  * Indonesian
+  * Japanese
+  * Korean
+  * Simplified Chinese
+  * Traditional Chinese
+
+Localization updates include:
+
+  * Mime Modes
+  * Mimeflation
+  * Mime's Box
+  * Mime's Reality
+  * Penelope Mime
+  * Katarina Mime
+  * Contract of Jimbo
+  * Showman's Secret
+  * Olo Mime
+  * new config controls
+  * affected Tag effect text
+  * missing Sacrifice labels and supporting strings
+
+All affected localization placeholders and formatting tags were synchronized with the final English reference.
+
+### Fixes / Polish
+
+  * Fixed Tag popup / animation / Tag-creation ordering across affected Jokers.
+  * Fixed Blueprint visual ownership for copied Tag effects.
+  * Fixed inconsistent Tag animations between different Jokers.
+  * Fixed Dream losing its activation sound and Tag popup.
+  * Fixed native SMODS Run Select displaying `ERROR` for the Pantomime Paradox page.
+  * Fixed several Tag helper paths using different internal APIs.
+  * Improved probability handling for Mime's Box.
+  * Improved probability handling for Showman's Secret.
+  * Improved Mime's Reality destruction safety.
+  * Improved Booster Pack Joker cleanup and sell-value handling for the new Vouchers.
+  * Improved compatibility with the current Steamodded event and calculation systems.
+  * Updated affected card and Voucher artwork.
+
+### Notes
+
+  * Version 1.16.0 focuses on compatibility with the new Steamodded Run Select system, Tag-effect synchronization, several major Joker reworks, and the new Booster Pack Voucher line.
+  * No existing save data reset is required.
+
+
 ## 1.15.2 - 2026-08-07 - Encore Fixes Update
 
 ### Junior Mime Rework
