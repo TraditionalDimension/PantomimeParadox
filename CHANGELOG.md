@@ -1,5 +1,85 @@
 # Changelog — Pantomime Paradox
 
+## 1.16.1 - 2026-09-11 - Gameplay Fixes and Visual Polish
+
+### Dream
+
+Updated Dream's feedback to match The Wheel of Fortune.
+
+* Uses the same popup size, colors, placement, and animation timing.
+* Successful uses display `+1 Tag`.
+* Failed uses display the standard `Nope!` message.
+* Money is deducted before the Tag is granted.
+* Tag creation, success feedback, and sound now happen together.
+* Removed unnecessary delays after the result appears.
+* Improved animation timing at different game speeds and inside Booster Packs.
+* Fixed handling when available money changes before the effect resolves or no valid Tag is available.
+
+### Penelope Mime
+
+Fixed Penelope Mime triggering on held cards without an active held-in-hand effect.
+
+* Cards with no held-in-hand effect no longer receive a chance to level up a poker hand.
+* Held effects provided by other Jokers, including Baron and Shoot the Moon, are recognized regardless of Joker order.
+* Actual retriggers and Blueprint copies remain supported.
+* The displayed probability now correctly accounts for probability modifiers.
+
+### Prismatic Asteroid and Falling Asteroid
+
+Fixed upgrade-type counting.
+
+* Both Asteroids now count distinct Enhancement, Seal, and Edition types across the entire played or discarded hand.
+* Repeated copies of the same type only count once.
+* Example: two Lucky Cards count as 1 type.
+* Example: Lucky Cards with Red Seals and Foil Editions count as 3 types, regardless of duplicates.
+* Cards with multiple Enhancements are supported.
+* Debuffed cards do not contribute upgrade types.
+
+### Showman's Secret
+
+* Reduced the base chance to grant a Negative Edition from 1 in 42 to 1 in 150.
+* Probability modifiers continue to apply normally.
+
+### Double Act
+
+* Fixed copied passive bonuses using default values instead of the copied Joker's current values.
+* Copying a partially used Turtle Bean now grants its remaining hand-size bonus.
+* Corrected bonus handling when the copied Joker is sold, debuffed, or restored.
+* Preserved the copied Edition, including Negative.
+
+### Boss Blinds
+
+Updated destruction effects for The Pliers, The Press, and Coral Anchor.
+
+* Destroyed cards now correctly trigger related effects, including Glass Joker and Canio.
+* Eternal playing cards are protected.
+* Already destroyed cards are not processed again.
+* Preserved each Blind's destruction timing and visual effects.
+
+### Shift Rerolls
+
+* Fixed duplicate Booster Pack refreshes.
+* Shop Reroll effects now resolve once per Shift Reroll when enabled.
+* Free and paid Shift Rerolls retain their correct costs.
+
+### Random Tags
+
+* Random Tag selection now respects Tag availability conditions and restrictions in the current run.
+* Boss Tag remains excluded from effects that create random non-Boss Tags.
+
+### JokerDisplay
+
+* Updated both Asteroid displays to use the same distinct-type counting as their gameplay effects.
+* Fixed Penelope Mime's reminder incorrectly referring only to the first held-card trigger.
+
+### Mireille Mime
+
+* Fixed destroyed Glass Cards not increasing Glass Joker's XMult.
+* Eternal playing cards now resist destruction and do not grant the $7 reward.
+* Blueprint and Brainstorm repeat the successful payout without destroying additional cards.
+* Failed attempts use short, standard `Eternal!` or `Nope!` messages.
+
+
 ## 1.16.0 - 2026-09-01 - Compatibility Update
 
 ### SMODS Run Select Compatibility
