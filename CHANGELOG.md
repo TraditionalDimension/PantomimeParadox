@@ -1,5 +1,17 @@
 # Changelog — Pantomime Paradox
 
+## 1.16.2 - 2026-09-18 - Gameplay Fixes
+
+### Fixes
+
+* Several sprites
+* Excessive Leaky Crown chance
+* Firstlastro triggering in subsequent shops
+* Shift Rerolls counting towards challenges
+* Notifications for Sacrificetro card destruction
+* Negative editions of challenge starting consumables
+
+
 ## 1.16.1 - 2026-09-11 - Gameplay Fixes and Visual Polish
 
 ### Dream
