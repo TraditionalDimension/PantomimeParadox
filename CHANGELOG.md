@@ -1,5 +1,30 @@
 # Changelog — Pantomime Paradox
 
+## 1.16.3 - 2026-10-04 - Challenge Fixes
+
+### Fixes
+
+* Fixed Sibling Positions allowing excluded scoring bonuses to affect the final result.
+* Corrected Brother Mime and Sister Mime retrigger eligibility.
+* Fixed Back to Basics incorrectly removing held-card Chip bonuses.
+* Fixed final-Boss challenge rules being bypassed by modern Steamodded blind selection.
+* Corrected Orbit Duchess's numerical probability preview to match the actual roll chance.
+* Fixed percentage-rounding precision for Fisher Mime and Mime Agony.
+* Fixed card-area capacity reductions with Steamodded's cached slot accounting.
+* Corrected zero-probability handling in custom challenge checks.
+* Updated challenge parameter previews to reflect actual starting conditions, including deck, stake, Voucher, and Edition effects.
+
+### Visual Feedback
+
+* Added `Zero!`, `Nope!`, and `Held only!` scoring feedback for Sibling Positions.
+* Added `Zero!` feedback for excluded played-card Chips in Back to Basics.
+
+### Notes
+
+* Existing Joker description texts are preserved.
+* Orbit Duchess's actual roll chance and RNG behavior remain unchanged.
+
+
 ## 1.16.2 - 2026-09-18 - Gameplay Fixes
 
 ### Fixes
