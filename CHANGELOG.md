@@ -1,5 +1,69 @@
 # Changelog — Pantomime Paradox
 
+## 1.17.0 - 2026-10-11 - Compatibility and Stability: First Pass
+
+### 1.17 Series Direction
+
+The 1.17.x series is planned to focus on compatibility, bug fixes, balance adjustments, and existing gameplay problems.
+
+This first release establishes the baseline for that work and includes initial save, shop, Task Mode, and balance corrections.
+
+### Balance Changes
+
+#### Charm Collector
+
+* Reduced the default XMult gain per triggered Tag from +X0.47 to +X0.37.
+* Updated calculation and description fallback values to match.
+
+### Save and Continue Fixes
+
+#### Top Billing and Closing Credits
+
+* Fixed valid shop actions potentially failing to trigger payouts after Continue Run.
+* Purchase and Reroll action counters are now preserved within the current run.
+* Added migration for older saves, including stored Blueprint payout records.
+* Fixed autosaves retaining incomplete payout state after Rerolls, Voucher purchases, and Booster Pack purchases.
+* Autosaves now wait for the completed shop action and its payouts.
+
+#### Unbearable Deck
+
+* Shop removal results are now preserved in saved offers.
+* Fixed Continue Run potentially repeating removal rolls for restored shop items.
+* Added compatibility handling for surviving offers in older saves.
+* Interrupted removals now finish once without another random roll.
+* Fixed shop autosaves capturing RNG state before pending removals had finished.
+
+### Task Mode
+
+#### Plasma Deck
+
+* Fixed newly generated score-based objectives missing Plasma Deck's required target multiplier.
+* Corrected deck identification under Steamodded.
+* Existing assigned objectives retain their stored targets.
+
+### Compatibility Validation
+
+* Checked completion boundaries for all 94 registered Task templates under Normal, Hard, Impossible, and combined Hard + Impossible settings.
+* Checked selected interactions with Shift Rerolls, Firstlastro, and Sacrificetro.
+* Verified long-run victories and Continue behavior across all four difficulty configurations and all eight standard Stakes.
+* Checked standard Multiplayer 0.5.5 and Experimental Multiplayer 0.10 lobby, cooperative, and team scenarios.
+* Long-run checks used controlled cards and hand levels; they do not establish organic gameplay balance.
+
+### Known Multiplayer Issues
+
+Observed in local tests with Experimental Multiplayer 0.10:
+
+* Joining a resumed cooperative lobby by code can reset guest lives to 0.
+* In the tested two-player scenario, both players using their own saved-run Resume preserves lives.
+* Cooperative progression can finish Ante 8 and enter Ante 9 without triggering the victory screen or completion flag.
+* These upstream behaviors remain unresolved in this release.
+
+### Notes
+
+* This release introduces no new gameplay content.
+* Further compatibility coverage and targeted fixes are planned for subsequent 1.17.x updates.
+
+
 ## 1.16.3 - 2026-10-04 - Challenge Fixes
 
 ### Fixes
