@@ -1,5 +1,65 @@
 # Changelog — Pantomime Paradox
 
+## 1.18.0 - 2026-10-30 - Multiplayer Integration and Save Stability
+
+### Multiplayer Integration
+
+* Added separate compatibility adapters for MultiplayerPvP 1.0.1 / MultiplayerAPI 1.0.1 and MP CO-OP Addon 0.3.0.
+* Preserved the separate integration paths for legacy Multiplayer 0.5.5 and Multiplayer Experimental 0.11.4.
+* Integration now follows the owner of the active lobby. Opening a menu or merely installing a Multiplayer mod does not apply its rules to singleplayer.
+* MultiplayerAPI, MultiplayerPvP, and MP CO-OP can be installed together. Pantomime uses the adapter belonging to the current lobby.
+* Conflicting networking generations and unsupported lobby owners are rejected instead of being selected by load order.
+
+### Shared Lobby Rules
+
+* Shared rules include explicitly disabled options, the Pantomime version, and the content actually loaded by the game.
+* Improved synchronization of host rules, acknowledgements, and readiness in the new PvP integration.
+* Changing shared rules requires players to confirm readiness again. Rapid consecutive edits are retained until the server confirms them.
+* Fixed repeated unready requests while waiting for the first rules packet.
+* Fixed pending rules becoming stuck after host transfer.
+* Fixed private Balanced lobbies being incorrectly treated as ranked games.
+* Lobby settings remain separate from personal singleplayer preferences.
+
+### MP CO-OP Support
+
+* Added Pantomime's own integration provider for MP CO-OP 0.3.0, including its lobby settings pages and frozen run rules.
+* Hard, Impossible, Task, Shift Rerolls, Sacrificetro, and Firstlastro continue to use Pantomime's rules while the addon controls the cooperative campaign and its shared target.
+* Multiplayer Task Mode uses Every Ante. A failed task applies its $16 penalty once without forcing a cooperative defeat.
+* Sacrificetro checks the confirmed team result in cooperative blinds.
+* Pantomime is installed separately from the CO-OP addon; neither archive bundles the other mod or MultiplayerAPI.
+
+### Run Start, Continue, and Recordings
+
+* Fixed multiplayer starts on profiles that had never opened the native Steamodded singleplayer Run Select menu.
+* Preserved existing run selections in the profile during native run initialization.
+* Improved detection of the active network session before the run's game state exists.
+* Fixed an error when returning from PvP to a continued singleplayer run.
+* Compatible PvP recordings now retain the complete Pantomime rule snapshot for local playback initialization and restoration.
+* Restores use the saved rules rather than unrelated current menu settings. Incompatible recording contracts are rejected with an explanation.
+
+### Gameplay and Save Fixes Since 1.17.0
+
+This release also includes the maintenance work previously developed in the unreleased 1.17.1 candidates.
+
+* Corrected percentage-Chips calculations to use the current scoring value in sequence, including copied and retriggered effects.
+* Improved preservation of completed shop Rerolls, counters, rewards, RNG state, and transformations across Continue Run.
+* Corrected removed-Seal tracking for Marked Deck and affected Joker effects and previews.
+* Fixed Penelope Mime's handling of resolved held Gold and Blue effects at round end.
+* Improved removal of persistent debuff causes by Doctor Mime.
+* Fixed the price recalculation after Mime Illusionist removes Perishable.
+* Improved reward-card identity handling after Continue Run.
+* Corrected affected tooltips, localization, and JokerDisplay previews without changing saved Joker state merely to calculate a preview.
+
+### Settings and Compatibility Notes
+
+* Improved native settings readability with larger labels, separate values, and hover explanations.
+* Clarified which settings belong to the host's lobby and which are personal preferences.
+* New PvP and CO-OP integrations target private, unranked sessions.
+* Use one networking generation at a time: legacy Multiplayer, the new MultiplayerAPI family, or Multiplayer Experimental.
+* MP CO-OP 0.2.0 and 0.3.0 are different addon generations and must not be installed together.
+* All players should update together and use matching Pantomime versions and loaded content.
+
+
 ## 1.17.0 - 2026-10-11 - Compatibility and Stability: First Pass
 
 ### 1.17 Series Direction
