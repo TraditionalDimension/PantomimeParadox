@@ -1,5 +1,43 @@
 # Changelog — Pantomime Paradox
 
+## 1.18.1 - 2026-11-15 - Task Mode and Shift Rerolls Compatibility
+
+### Task Mode
+
+* Fixed duplicate task assignment at the start of Ante 1. Every Ante now records the previous task once when the next Ante begins.
+* Improved objective selection for decks with limited hands, discards, or hand size. Objectives on specific cards check the card's rank, suit, enhancement, seal, and edition where applicable.
+* Forced discards from The Hook no longer count as voluntary discards. Played hands still count when their score is blocked.
+* The Boss-entry objective uses the run seed to choose its required number of Boss Blinds and minimum cash balance. Entering with the minimum or more counts. The Boss count is limited by the campaign length.
+* Tag objectives count confirmed acquisitions and successful activations once. Consumable objectives count physical uses, including eligible cards from mods.
+
+### MP CO-OP and Multiplayer
+
+* In MP CO-OP Addon 0.3.3, the host can choose Every Ante or Whole Run. Each player receives a personal task based on their run seed and, where relevant, their deck and task history.
+* In Whole Run, missing the objective at the final Boss deadline ends the campaign for both players using the native CO-OP team result screen. Every Ante applies a one-time $16 penalty to the player who missed the objective.
+* CO-OP objectives respect the lobby's blind-skipping setting. Checked shared and individual seeds, including Hard and Impossible rules.
+* Verified the first-task startup fix in singleplayer, CO-OP 0.3.3, and Multiplayer PvP 1.0.5.
+
+### Shift Rerolls
+
+* Tightened catalog eligibility. Cavendish becomes available after Gros Michel goes extinct. Debug cards and Banner-banned cards are excluded.
+* Fixed navigation to the current shop offer and made filters and pagination update the open catalog in place. The catalog dims the shop behind it.
+* Added three shared sizes for the shop panel and catalog. Improved card previews, row contrast, and the distinction between offer-selection and page-navigation controls.
+* All in Jest's Scapino refreshes Booster Packs when Shift reroll effects are enabled. Shift uses its own price counter.
+
+### Mod Compatibility
+
+* Cryptid's Pointer and Trade grant progress for newly redeemed Vouchers. Reapplying an owned Voucher does not grant extra progress.
+* All in Jest's Planet retriggers keep their gameplay effects and grant one Task credit per physical use.
+* Verified selected Tag, Consumable, Booster Pack, and Voucher interactions with Bunco, All in Jest, Cryptid, Paperback, and Pokermon in isolated singleplayer profiles.
+
+### Interface and Localization
+
+* Joker Buffs shows two native Joker card previews per page. Formula tooltips and bulk controls cover all 36 settings.
+* Improved title hierarchy, contrast, and spacing in the settings screens. The Task HUD wraps and spaces objective text and shows completion and failure states.
+* Updated Task Mode and related interface text across all 15 supported languages.
+* Title on the main settings tab now links to the author website and shows a localized browser tooltip.
+
+
 ## 1.18.0 - 2026-10-30 - Multiplayer Integration and Save Stability
 
 ### Multiplayer Integration
